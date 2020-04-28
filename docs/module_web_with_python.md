@@ -258,7 +258,8 @@ with a diverse range of applications, such as serving as replacement for XML in 
 ### Version control
 
 #### What type of branching strategy would you use?
-Git flow workflow. I would create a Develop branch from the master and a new branch for each feature from the Develop branch.
+Git flow workflow. I would create a Develop branch from the master and a new branch for each 
+feature from the Develop branch.
 #### What would you do if you find a bug on the production code (master branch)?
 I would open a new branch and fix the bug on it and then make a pull request. Or find a version in the commits that is bug-free.
 #### How can you move changes from one branch to another in GIT?
