@@ -62,11 +62,19 @@ def bubbleSort(arr):
             if arr[j] > arr[j+1] :
                 arr[j], arr[j+1] = arr[j+1], arr[j]
 #### Explain the process of finding the maximum and minimum value in a list of numbers!
-Assign a variable to min and max which are both the first elements of the array. Then loop through the array starting from the second element and examine each element. If the examined element is bigger than the value assigned to the max variable, change the max variable value to that element. Sam with the min, but the consition is that the examined element is smaller.
+Assign a variable to min and max which are both the first elements of the array. 
+Then loop through the array starting from the second element and examine each element. 
+If the examined element is bigger than the value assigned to the max variable, 
+change the max variable value to that element. Same with the min, but the condition is that 
+the examined element is smaller.
 #### Explain the process of calculating the average value in an array of numbers!
 Sums up the values of the array and divides the sum with the length of the array.
 #### What is Big O complexity? Explain time and space complexity!
-Big O Notation is the language we use to describe the complexity of an algorithm. In other words, Big O Notation is the language we use for talking about how long an algorithm takes to run. It is how we compare the efficiency of different approaches to a problem. With Big O Notation we express the runtime in terms of — how quickly it grows relative to the input, as the input gets larger.
+Big O Notation is the language we use to describe the complexity of an algorithm,
+we use it for talking about how long an algorithm takes to run. 
+It is how we compare the efficiency of different approaches to a problem. 
+With Big O Notation we express the runtime in terms of — how quickly it grows relative to the input, 
+as the input gets larger.
 Time: O(1) & O(log n) < O(n) < O (n log n) < O(n^2) < O(2^n) < O(n!)
 Space: memory optimization
 #### Explain the process of calculating the average value in a linked list of numbers!
@@ -74,16 +82,23 @@ Summing the values and dividing them by the list length.
 
 ### Procedural
 #### How the CASE condition works in SQL?
-The CASE statement goes through conditions and returns a value when the first condition is met. Once a condition is true, it will return the result and won't read the further conditions in the CASE statement. In case there are no true conditions, the ELSE clause will apply.
+The CASE statement goes through conditions and returns a value when the first condition is met. 
+Once a condition is true, it will return the result and won't read the further conditions in the CASE statement. 
+In case there are no true conditions, the ELSE clause will apply.
 #### How the switch-case condition works in JavaScript?
 The switch statement is used to perform different actions based on different conditions
 #### How to achieve a switch-case-like structure in Python?
-Define a function with one parameter. Inside a the function create a dictionary with keys being the 'case' values and values being the return values of that case statement. The function should return the dictionary.get(parameter, deafult case).
+Define a function with one parameter. 
+Inside a the function create a dictionary with keys being the 'case' values 
+and values being the return values of that case statement. 
+The function should return the dictionary.get(parameter, default case).
 #### Explain variable scoping in Python!
-Where a variable is accessible depends on how it is defined. We call the part of a program where a variable is accessible its scope.
+Where a variable is accessible depends on how it is defined. 
+We call the part of a program where a variable is accessible its scope.
 #### What’s the difference between const and var in JavaScript?
 Const is block scoped and cannot be reassigned, var is function scoped and can be reassigned
 #### How the list comprehension looks like in Python?
+*result* = [*transform* *iteration* *filter*]
 num_list = [ i for i in range(10) ]
 #### How the “ternary expression” looks like in Python?
 if 'condition' is True:
@@ -99,7 +114,8 @@ if ('condition' === true) {
 #### How to import a function from another module in Python?
 from [module-name] import [function-name]
 #### How to import a function from another module in JavaScript?
-Export the function from the other module with the 'export' keyword and import the function to the original module like: import {function} from 'othermodule.js'.
+Export the function from the other module with the 'export' keyword and import the function 
+to the original module like: import {function} from 'othermodule.js'.
 
 ### Functional
 #### What is recursion?
@@ -122,17 +138,23 @@ my_var = my_func
 You can call the function with the variable:
 my_var(10) --- prints 10
 #### List the ways of defining a callable logical unit in JavaScript!
-as ordinary function, as arrow function, assign a function to the property of an object and call it as a method via that object
+as ordinary function, as arrow function, assign a function to the property of an object 
+and call it as a method via that object
 #### What is an event listener? How to attach one?
-Event listeners are meant to determine which item of the webpage should react to what type of event and what function should it trigger. Event listeners can be attached in javascript to dom elements by the addEventListener built-in function.
+Event listeners are meant to determine which item of the html should react to what type of event 
+and what function should it trigger. Event listeners can be attached in javascript to dom elements 
+by the addEventListener built-in function.
 #### How to trigger an event in JavaScript?
 With the dispatchEvent function.
 #### What is a callback function? Tell some examples of its usage.
-A callback function is an executable code that can be passed as the argument of another function which executes the callback function. For e.g.: the built-in setTimeout function
+A callback function is an executable code that can be passed as the argument of another 
+function which executes the callback function. For e.g.: the built-in setTimeout function
 #### What is a Python decorator? How does it work? Tell some examples of its usage.
-A decorator takes in a function, adds some functionality and returns it without permanently modifying it. For e.g.: in Flask the app.route is used as decorator.
+A decorator takes in a function, adds some functionality and returns it without permanently modifying it. 
+For e.g.: in Flask the app.route is used as decorator.
 #### What is the difference between synchronous and asynchronous execution?
-When a piece of code is executing synchronously, the program waits for it to finish before moving to the next task. With asynchronous execution tasks will be executed regardless of the other tasks finish time.
+When a piece of code is executing synchronously, the program waits for it to finish before moving to the next task. 
+With asynchronous execution tasks will be executed regardless of the other tasks finish time.
 
 ## Programming languages
 
@@ -148,13 +170,19 @@ For e.g.: COUNT(), AVG(), SUM()
 #### What kind of JOIN types do you know in SQL? Could you give examples?
 left join, right join, inner join, outer join, full join
 #### What are the constraints in sql?
-Constarints are rules that apply to data in a certain column of a table. For e.g.: you can determine if a column should only consist of integers or be unique etc.
+Constraints are rules that apply to data in a certain column of a table. 
+For e.g.: you can determine if a column should only consist of integers or be unique etc.
 #### What is a cursor in SQL? Why would you use one?
-An SQL cursor is meant to retrieve data one row at a time. It is best to use cursors to update data ro by row in a table.
+An SQL cursor is meant to retrieve data one row at a time. 
+It is best to use cursors to update data row by row in a table.
 #### What are database indexes? When to use?
-Indexes are used to speed up data retrival from a database. The index keys are based on the tables’ columns. It is useful when we want to select some values of a large database.
+Indexes are used to speed up data retrieval from a database. 
+The index keys are based on the table's columns. 
+It is useful when we want to select some values of a large database.
 #### What are database transactions? When to use?
-A transaction is a unit of work that is performed against a database. Transactions are units or sequences of work accomplished in a logical order, whether in a manual fashion by a user or automatically by some sort of a database program.
+A transaction is a unit of work that is performed against a database. 
+Transactions are units or sequences of work accomplished in a logical order, 
+whether in a manual fashion by a user or automatically by some sort of a database program.
 #### What kind of database relations do you know? How to define them?
 One to One Relationships
 One to Many and Many to One Relationships
@@ -168,9 +196,13 @@ I would create a table which would store the deleted/original version data.
 ### HTML & CSS
 
 #### What’s the difference between XML, XHTML and HTML?
-XHTML is HTML written as XML. XHTML is very similar to HTML, but it is stricter. While HTML runs on the major browsers while containing 'bad' practices (for e.g.: not closed elements, missing '<!DOCTYPE ....>'), XHTML needs to contain everything according to rules.
+XHTML is HTML written as XML. 
+XHTML is very similar to HTML, but it is stricter. 
+While HTML runs on the major browsers while containing 'bad' practices 
+(for e.g.: not closed elements, missing '<!DOCTYPE ....>'), 
+XHTML needs to contain everything according to rules.
 #### How to include a JavaScript file in a webpage?
-in the body tag: '<script src={path/to/file.js}></script>'
+in the hesd tag: '<script src={path/to/file.js}></script>'
 #### How to include a CSS file in a webpage?
 in the head tag: '<link rel="stylesheet" href="{path/to/file.css">'
 #### How to select an element using its id in CSS?
@@ -187,9 +219,10 @@ ol li{   }
 UX: user experience, the user's interaction or experience with the product
 UI: user interface, focuses on the user's visual experience
 #### Please list some points that an application should fulfill to have good UX.
-Clear and readable, nice and digestable design, use familiar elements, know the audiance
+Clear and readable, nice design, use familiar elements, user friendly
 #### What is XML, XSLT, DTD?
-XML: stands for eXtensible Markup Language, it was designed to store and transport data, it is both human- and machine-readable
+XML: stands for eXtensible Markup Language, it was designed to store and transport data, 
+it is both human- and machine-readable
 XSLT: eXtensible Stylesheet Language Transformations, it is the recommended style sheet language for XML
 DTD: Document Type Definition, it defines the structure and the legal elements and attributes of an XML document
 #### What is the difference between HTML and XML?
@@ -200,15 +233,25 @@ XML is meant to carry data based on what the data is, while HTML's purpose is to
 #### What is javascript?
 It is a programming language used to run codes on the browser (client) side of the program.
 #### When to use AJAX? Bring examples of its usage.
-AJAX stands for Asynchronous JavaScript and XML. With AJAX the data on a webpage can be modified without refreshing the whole page. For e.g.: Facebook uses AJAX to load new posts on your timeline.
+AJAX stands for Asynchronous JavaScript and XML. With AJAX the data on a webpage can be modified without 
+refreshing the whole page. For e.g.: Facebook uses AJAX to load new posts on your timeline.
 #### What is DOM and how to manipulate it from Javascript?
-DOM is Document Object Model. It basically represents the internal of the page. With DOM manipulation we can choose a document element (by class, ba tag, by id) and modify its content or style, or we can create or delete elements.
+DOM is Document Object Model. It basically represents the internal of the page. 
+With DOM manipulation we can choose a document element (by class, ba tag, by id) 
+and modify its content or style, or we can create or delete elements.
 #### What are events and how/why to use them in Javascript?
-HTML and Javascript interacts with each other through events which are usually triggered by the user on the browser. For e.g.: user clicks on a button, user presses a key, etc. JS can react to these events with eventhandlers. 
+HTML and Javascript interacts with each other through events which are usually triggered by the user 
+on the browser. For e.g.: user clicks on a button, user presses a key, etc. 
+JS can react to these events with eventHandlers. 
 #### What is event bubbling/capturing? How would you use it?
-When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors. Event Capturing is when the event starts from top element to target element. 
+When an event happens on an element, it first runs the handlers on it, then on its parent, 
+then all the way up on other ancestors. Event Capturing is when the event starts from top element 
+to target element. 
 #### What is JSON and how do we use it?
- JSON (JavaScript Object Notation) is an open standard file format, and data interchange format, that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and array data types (or any other serializable value). It is a very common data format, with a diverse range of applications, such as serving as replacement for XML in AJAX systems.
+JSON (JavaScript Object Notation) is an open standard file format, and data interchange format, 
+that uses human-readable text to store and transmit data objects consisting of attribute–value pairs 
+and array data types (or any other serializable value). It is a very common data format, 
+with a diverse range of applications, such as serving as replacement for XML in AJAX systems.
 
 ## Software engineering
 
