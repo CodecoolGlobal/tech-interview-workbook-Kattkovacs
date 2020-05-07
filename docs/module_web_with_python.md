@@ -13,31 +13,49 @@
 5. Name objects in your database logically and consistently. 
 
 #### What layers can you name in a simple web application?
-Presentation (UI), Application, Data
+UI, Application, Data
 
 ### Error handling
 #### What error can occur, when an array does not have an element on the requested index?
 IndexError: List index out of range
 #### What is the “finally” block, and how would you use it?
-The try statement can have a finally block (it is optional). It executes no matter what, as the last step of the error handling.
+The try statement can have a finally block (it is optional). 
+It executes no matter what, as the last step of the error handling.
 #### Why should we catch special exception types?
-General exceptions will not let you know the exact root cause of the issue especially if many steps are involved in a method implementation. Also, in many cases, we need to react to errors based on their type with different exception handling.
+General exceptions will not let you know the exact root cause of the issue especially 
+if many steps are involved in a method implementation. 
+Also, in many cases, we need to react to errors based on their type with different exception handling.
 
 ### Security
 #### What is SQL injection? How to protect an application against it?
-SQL injection is a technique by which vulnerable (poorly designed) web applications can be attacked by harming the database. You can protect your application by: sanitizing user input, escaping, parameterising (%s), random table names
+SQL injection is a technique by which vulnerable (poorly designed) web applications can be 
+attacked by harming the database. You can protect your application by: sanitizing user input, 
+escaping, parameterize (%s), random table names
 #### What is XSS? How to protect an application against it?
-XSS (also called cross-site scripting) is a web security vulnerability that allows an attacker to compromise the interactions that users have with a vulnerable application. It is often used to impersonate a user and access data/funcionalities/permissions that the user has. It is based on manipulating a vulnerable web site so that it returns malicious JavaScript to users. You can protect your application by: filter input, encode data on output, use Content Security Policy.
+XSS (also called cross-site scripting) is a web security vulnerability that allows an attacker 
+to compromise the interactions that users have with a vulnerable application. 
+It is often used to impersonate a user and access data/funcionalities/permissions that the user has. 
+It is based on manipulating a vulnerable web site so that it returns malicious JavaScript to users. 
+You can protect your application by: filter input, encode data on output, use Content Security Policy.
 #### How to properly store passwords?
 Hashed and salted.
 #### What is HTTPS?
-Hypertext Transfer Protocol Secure. It is used for secure communication in a network and widely used on the internet. It protects the privacy and integrity of the exchanged data and prevents third-party attacks. HTTPS uses an encryption protocol to encrypt communications. The protocol is called Transport Layer Security (TLS). This protocol secures communications by using what’s known as an asymmetric public key infrastructure.
+Hypertext Transfer Protocol Secure. 
+It is used for secure communication in a network and widely used on the internet. 
+It protects the privacy and integrity of the exchanged data and prevents third-party attacks. 
+HTTPS uses an encryption protocol to encrypt communications. 
+The protocol is called Transport Layer Security (TLS). This protocol secures communications by 
+using what’s known as an asymmetric public key infrastructure.
 #### What is encryption and decryption?
-Encryption is the practice of modifying information in a way that only someone with a corresponding key can get the original data and read it. It is a two-way function, which means that encripted data can be decrypted with the appropriate key. 
+Encryption is the practice of modifying information in a way that only someone with a corresponding 
+key can get the original data and read it. It is a two-way function, which means that encripted data 
+can be decrypted with the appropriated key. 
 #### What is hashing?
-Hashing is the practice of using an algorithm to map data. Unlike encryption, it is a one-way function. It is often used to store passwords.
+Hashing is the practice of using an algorithm to map data. Unlike encryption, it is a one-way function. 
+It is often used to store passwords.
 #### What is the difference between encryption and hashing? When would you use which?
-Encryption is a two-way function, while hashing is one-way. Encryption is meant protect data in transit and hashing is meant to verify if the examined data have been modified or not.
+Encryption is a two-way function, while hashing is one-way. 
+Encryption is meant protect data in transit and hashing is meant to verify if the examined data have been modified or not.
 #### What encryption methods do you know?
 Triple DES, RSA, Blowfish, Twofish, AES
 #### What hashing methods do you know?
@@ -50,10 +68,21 @@ In environment variables
 ### Algorithms
 
 #### What is the difference between Stack and Queue data structure?
-Stack A stack is a linear data structure in which elements can be inserted and deleted only from one side of the list, called the top. A stack follows the LIFO (Last In First Out) principle, i.e., the element inserted at the last is the first element to come out. The insertion of an element into stack is called push operation, and deletion of an element from the stack is called pop operation. In stack we always keep track of the last element present in the list with a pointer called top.
-Queue: A queue is a linear data structure in which elements can be inserted only from one side of the list called rear, and the elements can be deleted only from the other side called the front. The queue data structure follows the FIFO (First In First Out) principle, i.e. the element inserted at first in the list, is the first element to be removed from the list. The insertion of an element in a queue is called an enqueue operation and the deletion of an element is called a dequeue operation. In queue we always maintain two pointers, one pointing to the element which was inserted at the first and still present in the list with the front pointer and the second pointer pointing to the element inserted at the last with the rear pointer.
+Stack A stack is a linear data structure in which elements can be inserted and deleted only from one 
+side of the list, called the top. A stack follows the LIFO (Last In First Out) principle, i.e., 
+the element inserted at the last is the first element to come out. The insertion of an element into stack is 
+called push operation, and deletion of an element from the stack is called pop operation. 
+In stack we always keep track of the last element present in the list with a pointer called top.
+Queue: A queue is a linear data structure in which elements can be inserted only from one side of the list 
+called rear, and the elements can be deleted only from the other side called the front. The queue data structure
+follows the FIFO (First In First Out) principle, i.e. the element inserted at first in the list, 
+is the first element to be removed from the list. The insertion of an element in a queue is called an enqueue operation 
+and the deletion of an element is called a dequeue operation. In queue we always maintain two pointers, 
+one pointing to the element which was inserted at the first and still present in the list with the front pointer 
+and the second pointer pointing to the element inserted at the last with the rear pointer.
 #### What is BubbleSort? Describe the main logic of this sorting algorithm.
-Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order.
+Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements 
+if they are in wrong order.
 
 def bubbleSort(arr):
     n = len(arr)
@@ -138,20 +167,21 @@ my_var = my_func
 You can call the function with the variable:
 my_var(10) --- prints 10
 #### List the ways of defining a callable logical unit in JavaScript!
-as ordinary function, as arrow function, assign a function to the property of an object 
-and call it as a method via that object
+as ordinary function, as arrow function ()=>, assign a function to the property of an object 
+and call it as a method via that object (dom.addCard())
 #### What is an event listener? How to attach one?
 Event listeners are meant to determine which item of the html should react to what type of event 
 and what function should it trigger. Event listeners can be attached in javascript to dom elements 
 by the addEventListener built-in function.
 #### How to trigger an event in JavaScript?
-With the dispatchEvent function.
+With onclick="" in HTML - add an ID to the element to uniquely select it, and call the .click() method.
+Or with the dispatchEvent function.
 #### What is a callback function? Tell some examples of its usage.
 A callback function is an executable code that can be passed as the argument of another 
 function which executes the callback function. For e.g.: the built-in setTimeout function
 #### What is a Python decorator? How does it work? Tell some examples of its usage.
 A decorator takes in a function, adds some functionality and returns it without permanently modifying it. 
-For e.g.: in Flask the app.route is used as decorator.
+For e.g.: in Flask the @app.route is used as decorator.
 #### What is the difference between synchronous and asynchronous execution?
 When a piece of code is executing synchronously, the program waits for it to finish before moving to the next task. 
 With asynchronous execution tasks will be executed regardless of the other tasks finish time.
@@ -161,7 +191,9 @@ With asynchronous execution tasks will be executed regardless of the other tasks
 ### SQL
 
 #### How can you connect your application to a database server? What are the possible ways? 
-For example with the help of psycopg2.
+With a computer language that has a developed API or driver for accessing SQL Server such as ODBC or OLE DB. 
+If the database does not exist yet and you need to create it.
+With the help of psycopg2.
 #### When do you use the DISTINCT keyword in SQL?
 When you want to get only the unique values of a table.
 #### What are aggregate functions in SQL? Give 3 examples.
@@ -169,6 +201,7 @@ Aggregate functions are meant to group together values of multiple rows based on
 For e.g.: COUNT(), AVG(), SUM()
 #### What kind of JOIN types do you know in SQL? Could you give examples?
 left join, right join, inner join, outer join, full join
+It's better to search a picture for it.
 #### What are the constraints in sql?
 Constraints are rules that apply to data in a certain column of a table. 
 For e.g.: you can determine if a column should only consist of integers or be unique etc.
@@ -189,6 +222,7 @@ One to Many and Many to One Relationships
 Many to Many Relationships
 Self Referencing Relationships
 #### You have a table with an “address” field which contains data like “3525, Miskolc, Régiposta 9.” (postcode, city, street name and address). How would you query all records related to Miskolc?
+with wildcard %
 SELECT * FROM table WHERE address LIKE '%Miskolc%';
 #### How would you keep track of what kind of data has changed after an UPDATE or DELETE operation in a table?
 I would create a table which would store the deleted/original version data. 
@@ -202,7 +236,7 @@ While HTML runs on the major browsers while containing 'bad' practices
 (for e.g.: not closed elements, missing '<!DOCTYPE ....>'), 
 XHTML needs to contain everything according to rules.
 #### How to include a JavaScript file in a webpage?
-in the hesd tag: '<script src={path/to/file.js}></script>'
+in the head tag: '<script src={path/to/file.js}></script>'
 #### How to include a CSS file in a webpage?
 in the head tag: '<link rel="stylesheet" href="{path/to/file.css">'
 #### How to select an element using its id in CSS?
@@ -278,7 +312,7 @@ or some kind of network.
 
 #### Why is it good to use a package manager software?
 It eliminates the need for manual installs and updates, it provides centralized distribution and hosting,
-it lets you know the library versions you’re using, it helps prevent incompatible files from mixing Together
+it lets you know the library versions you’re using, it helps prevent incompatible files from mixing together.
 #### Why is it good to use a virtual environment for a project?
 The main purpose of Python virtual environments is to create an isolated environment for Python projects. 
 This means that each project can have its own dependencies, regardless of what dependencies every other project has.
