@@ -11,9 +11,14 @@
 3. Avoid repetition.
 4. A reusable query should do one thing, and do it properly.
 5. Name objects in your database logically and consistently. 
+1. A queryt kommentben elmagyarázni
+2. Fontos az olvashatóság (indentálás, igazítás)
+3. Kerülni az ismétlést
+4. Az újrahasznosítható query egy dolgot csinál, azt megfelelően
+5. Logikusan és következetesen elnevezni az adatbázisban lévő objektumokat.
 
 #### What layers can you name in a simple web application?
-UI, Application, Data
+UI (the view layer/presentation/client layer), Application (business logic/server layer), Data (database/storage layer)
 
 ### Error handling
 #### What error can occur, when an array does not have an element on the requested index?
@@ -21,6 +26,15 @@ IndexError: List index out of range
 #### What is the “finally” block, and how would you use it?
 The try statement can have a finally block (it is optional). 
 It executes no matter what, as the last step of the error handling.
+>>> def divide(x, y):
+...     try:
+...         result = x / y
+...     except ZeroDivisionError:
+...         print("division by zero!")
+...     else:
+...         print("result is", result)
+...     finally:
+...         print("executing finally clause")
 #### Why should we catch special exception types?
 General exceptions will not let you know the exact root cause of the issue especially 
 if many steps are involved in a method implementation. 
@@ -30,15 +44,30 @@ Also, in many cases, we need to react to errors based on their type with differe
 #### What is SQL injection? How to protect an application against it?
 SQL injection is a technique by which vulnerable (poorly designed) web applications can be 
 attacked by harming the database. You can protect your application by: sanitizing user input, 
-escaping, parameterize (%s), random table names
+escaping, parameterize (%s), random table names.
+Egy technika, amellyel a sebezhető (rosszul megtervezett) webes alkalmazások megtámadhatóak az adatbázis megsértésével. 
+Az alábbiak alkalmazásával védhető meg az adatbázis: a felhasználói bemenetek fertőtlenítése,
+menekülés, paraméterezés (% s), véletlenszerű táblázatok.
 #### What is XSS? How to protect an application against it?
 XSS (also called cross-site scripting) is a web security vulnerability that allows an attacker 
 to compromise the interactions that users have with a vulnerable application. 
 It is often used to impersonate a user and access data/funcionalities/permissions that the user has. 
 It is based on manipulating a vulnerable web site so that it returns malicious JavaScript to users. 
 You can protect your application by: filter input, encode data on output, use Content Security Policy.
+Az XSS a számítógépes sebezhetőség egy fajtája, amely tipikusan web alkalmazásoknál fordul elő: egy rosszindulatú 
+web-felhasználó olyan kódot illeszt egy weblapra, amit más felhasználó is lát. Például ilyen kód lehet a HTML kód 
+vagy egy kliens oldali script. Ha egy támadó egy XSS sebezhetőséget felfedez, azt - többek között - 
+felhasználhatja arra, hogy a hozzáférési ellenőrzést kikerülje, például avval, hogy a böngésző által kapott weblap 
+nem az eredeti forrásból származik (de megjelenésében azonos lehet az eredetivel).
+Az alkalmazást az alábbi módon tudja megvédeni: szűrje be a bemeneteket, kódolja a kimeneti adatokat, 
+használja a Tartalombiztonsági irányelveket.
 #### How to properly store passwords?
 Hashed and salted.
+Hashed psw: Storing passwords in plain text can lead to attackers knowing and leaking the exact password 
+of your site's users, potentially putting the users at risk. The same issues can arise if you use an old 
+or insecure algorithm for hashing (such as md5). You should use a password-specific hashing algorithm 
+(such as Argon2, PBKDF2, scrypt or bcrypt) instead of message digest algorithms (such as md5 and sha). 
+This article showcases best practices to use when storing passwords.
 #### What is HTTPS?
 Hypertext Transfer Protocol Secure. 
 It is used for secure communication in a network and widely used on the internet. 
@@ -47,28 +76,35 @@ HTTPS uses an encryption protocol to encrypt communications.
 The protocol is called Transport Layer Security (TLS). This protocol secures communications by 
 using what’s known as an asymmetric public key infrastructure.
 #### What is encryption and decryption?
+Encryption is meant protect data in transit.
 Encryption is the practice of modifying information in a way that only someone with a corresponding 
 key can get the original data and read it. It is a two-way function, which means that encripted data 
 can be decrypted with the appropriated key. 
 #### What is hashing?
+Hashing is meant to verify if the examined data have been modified or not.
 Hashing is the practice of using an algorithm to map data. Unlike encryption, it is a one-way function. 
 It is often used to store passwords.
 #### What is the difference between encryption and hashing? When would you use which?
-Encryption is a two-way function, while hashing is one-way. 
+Encryption is a two-way function (HTTPS uses an encryption protocol to encrypt communications), 
+while hashing (often used to store passwords) is one-way function. 
 Encryption is meant protect data in transit and hashing is meant to verify if the examined data have been modified or not.
 #### What encryption methods do you know?
-Triple DES, RSA, Blowfish, Twofish, AES
+Symmetric (one key) / asymmetric encryption (two keys)
+for e.g. Triple DES (Triple Data Encryption Standard), RSA (Rivest-Shamir-Adleman), Blowfish, Twofish, 
+AES (Advanced Encryption Standard)
 #### What hashing methods do you know?
-Division-remainder method, folding method, radix transformation method, digit rearrangement method
+Division-remainder method (relatively basic hashing algorithm), folding method (for numeric strings), 
+radix transformation method(uses a simple substitution in which a pre-determined part of the original data string 
+is reversed, and taken as the hash value for the string), digit rearrangement method
 #### How/where would you store sensitive data (like db password, API key, ...) of your application?
-In environment variables
+In environment variables. 
 
 ## Computer science
 
 ### Algorithms
 
 #### What is the difference between Stack and Queue data structure?
-Stack A stack is a linear data structure in which elements can be inserted and deleted only from one 
+Stack: A stack is a linear data structure in which elements can be inserted and deleted only from one 
 side of the list, called the top. A stack follows the LIFO (Last In First Out) principle, i.e., 
 the element inserted at the last is the first element to come out. The insertion of an element into stack is 
 called push operation, and deletion of an element from the stack is called pop operation. 
@@ -84,18 +120,28 @@ and the second pointer pointing to the element inserted at the last with the rea
 Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements 
 if they are in wrong order.
 
-def bubbleSort(arr):
-    n = len(arr)
-    for i in range(n):
-        for j in range(0, n-i-1):
-            if arr[j] > arr[j+1] :
-                arr[j], arr[j+1] = arr[j+1], arr[j]
+    # Traverse through all array elements 
+    for i in range(n): 
+  
+        # Last i elements are already in place 
+        for j in range(0, n-i-1): 
+  
+            # traverse the array from 0 to n-i-1 
+            # Swap if the element found is greater 
+            # than the next element 
+            if arr[j] > arr[j+1] : 
+                arr[j], arr[j+1] = arr[j+1], arr[j] 
 #### Explain the process of finding the maximum and minimum value in a list of numbers!
 Assign a variable to min and max which are both the first elements of the array. 
 Then loop through the array starting from the second element and examine each element. 
 If the examined element is bigger than the value assigned to the max variable, 
 change the max variable value to that element. Same with the min, but the condition is that 
-the examined element is smaller.
+the examined element is smaller. 
+        # min1 = l[0] # Assign first element as a minimum. 
+          for i in range(len(l)): 
+        # If the other element is min than first element 
+            if l[i] < min1:  
+                min1 = l[i] #It will change 
 #### Explain the process of calculating the average value in an array of numbers!
 Sums up the values of the array and divides the sum with the length of the array.
 #### What is Big O complexity? Explain time and space complexity!
@@ -104,8 +150,8 @@ we use it for talking about how long an algorithm takes to run.
 It is how we compare the efficiency of different approaches to a problem. 
 With Big O Notation we express the runtime in terms of — how quickly it grows relative to the input, 
 as the input gets larger.
-Time: O(1) & O(log n) < O(n) < O (n log n) < O(n^2) < O(2^n) < O(n!)
-Space: memory optimization
+Time complexity: O(1) & O(log n) < O(n) < O (n log n) < O(n^2) < O(2^n) < O(n!)
+Space complexity: memory optimization
 #### Explain the process of calculating the average value in a linked list of numbers!
 Summing the values and dividing them by the list length.
 
@@ -114,34 +160,72 @@ Summing the values and dividing them by the list length.
 The CASE statement goes through conditions and returns a value when the first condition is met. 
 Once a condition is true, it will return the result and won't read the further conditions in the CASE statement. 
 In case there are no true conditions, the ELSE clause will apply.
+CASE
+    WHEN condition1 THEN result1
+    WHEN condition2 THEN result2
+    WHEN conditionN THEN resultN
+    ELSE result
+END;
 #### How the switch-case condition works in JavaScript?
-The switch statement is used to perform different actions based on different conditions
+The switch statement is used to perform different actions based on different conditions.
+switch(expression) {
+  case x:
+    // code block
+    break;
+  case y:
+    // code block
+    break;
+  default:
+    // code block
+}
 #### How to achieve a switch-case-like structure in Python?
 Define a function with one parameter. 
 Inside a the function create a dictionary with keys being the 'case' values 
 and values being the return values of that case statement. 
 The function should return the dictionary.get(parameter, default case).
+def week(i):
+        switcher={
+                0:'Sunday',
+                1:'Monday',
+                2:'Tuesday',
+                3:'Wednesday',
+                4:'Thursday',
+                5:'Friday',
+                6:'Saturday'
+             }
+         return switcher.get(i,"Invalid day of week")
 #### Explain variable scoping in Python!
 Where a variable is accessible depends on how it is defined. 
 We call the part of a program where a variable is accessible its scope.
+A variable created inside a function belongs to the local scope of that function, 
+and can only be used inside that function.
 #### What’s the difference between const and var in JavaScript?
-Const is block scoped and cannot be reassigned, var is function scoped and can be reassigned
+Const is block scoped and cannot be reassigned, var/let is function scoped and can be reassigned
 #### How the list comprehension looks like in Python?
-*result* = [*transform* *iteration* *filter*]
-num_list = [ i for i in range(10) ]
+List comprehension is an elegant way to define and create list in python. We can create lists 
+just like mathematical statements and in one line only. 
+        lst  =  [x ** 2  for x in range (1, 11)   if  x % 2 == 1] 
+        # here, x ** 2 is output expression, 
+              range (1, 11)  is input sequence, 
+              x is variable and   
+              if x % 2 == 1 is predicate part.
+                                                (*result* = [*transform* *iteration* *filter*]
+                                                num_list = [ i for i in range(10) ])
 #### How the “ternary expression” looks like in Python?
-if 'condition' is True:
-    'condition_is_true'
-else:
-    'condition_is_false'
+            if 'condition' is True:
+                'condition_is_true'
+            else:
+                'condition_is_false'
 #### How the ternary expression looks like in JavaScript?
-if ('condition' === true) {
-    'condition_is_true'
-} else {
-    'condition_is_false'
-}
+            if ('condition' === true) {
+                'condition_is_true'
+            } else {
+                'condition_is_false'
+            }
 #### How to import a function from another module in Python?
 from [module-name] import [function-name]
+        from flask import Flask, render_template, url_for, request
+        from data import queries
 #### How to import a function from another module in JavaScript?
 Export the function from the other module with the 'export' keyword and import the function 
 to the original module like: import {function} from 'othermodule.js'.
@@ -150,22 +234,22 @@ to the original module like: import {function} from 'othermodule.js'.
 #### What is recursion?
 Recursion is a method where a function calls itself once or more in its body.
 #### Write a recursive function which calculates the Fibonacci numbers!
-def fibo_num(i):
-   if i <= 1:
-       return i
-   else:
-       return(fibo_num(i-1) + fibo_num(i-2))
+            def fibo_num(i):
+               if i <= 1:
+                   return i
+               else:
+                   return(fibo_num(i-1) + fibo_num(i-2))
 
 #### How to store a function in a variable in Python?
-Define the function:
-def my_func(i):
-    print(i)
-
-Address the function to a variable:
-my_var = my_func
-
-You can call the function with the variable:
-my_var(10) --- prints 10
+            Define the function:
+            def my_func(i):
+                print(i)
+            
+            Address the function to a variable:
+            my_var = my_func
+            
+            You can call the function with the variable:
+            my_var(10) --- prints 10
 #### List the ways of defining a callable logical unit in JavaScript!
 as ordinary function, as arrow function ()=>, assign a function to the property of an object 
 and call it as a method via that object (dom.addCard())
@@ -175,6 +259,9 @@ and what function should it trigger. Event listeners can be attached in javascri
 by the addEventListener built-in function.
 #### How to trigger an event in JavaScript?
 With onclick="" in HTML - add an ID to the element to uniquely select it, and call the .click() method.
+Or select the element with for e.g. querySelector, add an eventListener method to it, the first parameter is the 
+type of the event (like "click" or "mousedown" or any other HTML DOM Event.) 
+The second parameter is the function we want to call when the event occurs. Then click on the element.
 Or with the dispatchEvent function.
 #### What is a callback function? Tell some examples of its usage.
 A callback function is an executable code that can be passed as the argument of another 
@@ -204,7 +291,7 @@ left join, right join, inner join, outer join, full join
 It's better to search a picture for it.
 #### What are the constraints in sql?
 Constraints are rules that apply to data in a certain column of a table. 
-For e.g.: you can determine if a column should only consist of integers or be unique etc.
+For e.g.: you can determine if a column should only consist of integers or be unique etc., PRIMARY KEY, UNIQUE
 #### What is a cursor in SQL? Why would you use one?
 An SQL cursor is meant to retrieve data one row at a time. 
 It is best to use cursors to update data row by row in a table.
@@ -212,27 +299,33 @@ It is best to use cursors to update data row by row in a table.
 Indexes are used to speed up data retrieval from a database. 
 The index keys are based on the table's columns. 
 It is useful when we want to select some values of a large database.
+The CREATE INDEX statement is used to create indexes in tables.
 #### What are database transactions? When to use?
 A transaction is a unit of work that is performed against a database. 
 Transactions are units or sequences of work accomplished in a logical order, 
 whether in a manual fashion by a user or automatically by some sort of a database program.
 #### What kind of database relations do you know? How to define them?
-One to One Relationships
-One to Many and Many to One Relationships
+One to One Relationships - one table one row to other table's one row
+One to Many and Many to One Relationships 
 Many to Many Relationships
-Self Referencing Relationships
+Self Referencing Relationships - tables a foreign key constraint can reference columns within the same table
 #### You have a table with an “address” field which contains data like “3525, Miskolc, Régiposta 9.” (postcode, city, street name and address). How would you query all records related to Miskolc?
 with wildcard %
 SELECT * FROM table WHERE address LIKE '%Miskolc%';
 #### How would you keep track of what kind of data has changed after an UPDATE or DELETE operation in a table?
-I would create a table which would store the deleted/original version data. 
+There would be 2 tables, linked with foreign key constraints.
+I would create a table which would store the deleted/original version data, or
+I create a new table without the deleted data.
 
 ### HTML & CSS
 
 #### What’s the difference between XML, XHTML and HTML?
+XML: stands for eXtensible Markup Language, it was designed to store and transport data, 
+it is both human- and machine-readable.
+XML is meant to carry data based on what the data is, while HTML's purpose is to display data based on how it looks.
 XHTML is HTML written as XML. 
-XHTML is very similar to HTML, but it is stricter. 
-While HTML runs on the major browsers while containing 'bad' practices 
+XHTML is very similar to HTML, but it is stricter: 
+while HTML runs on the major browsers while containing 'bad' practices 
 (for e.g.: not closed elements, missing '<!DOCTYPE ....>'), 
 XHTML needs to contain everything according to rules.
 #### How to include a JavaScript file in a webpage?
@@ -253,7 +346,7 @@ ol li{   }
 UX: user experience, the user's interaction or experience with the product
 UI: user interface, focuses on the user's visual experience
 #### Please list some points that an application should fulfill to have good UX.
-Clear and readable, nice design, use familiar elements, user friendly
+Clear and readable, nice design, use familiar elements, user friendly, has less pain while using
 #### What is XML, XSLT, DTD?
 XML: stands for eXtensible Markup Language, it was designed to store and transport data, 
 it is both human- and machine-readable
