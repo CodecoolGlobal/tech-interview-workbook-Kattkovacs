@@ -389,13 +389,14 @@ Git flow workflow. I would create a Develop branch from the master and a new bra
 feature from the Develop branch.
 #### What would you do if you find a bug on the production code (master branch)?
 I would open a new branch and fix the bug on it and then make a pull request. 
-Or find a version in the commits that is bug-free.
+Or find a version in the commits that is bug-free and reset the current branch there.
 #### How can you move changes from one branch to another in GIT?
 With a pull request (hopefully after a successful merge/rebase).
 #### How does a VCS help with code reviews?
 We can see who developed and what feature through each commit. It is also easier to catch the cause of a bug.
 #### What is your favorite git command? Why?
 git commit --amend, because you can easily add some additional changes to a commit.
+git stash - it happens that I need to start again
 #### What does remote/local mean in Git? 
 Repositories/branches are local when they are only available on your local computer. 
 Remote repos/branches are a version of your project that is hosted on the Internet (for e.g.: github) 
@@ -417,17 +418,17 @@ This means that each project can have its own dependencies, regardless of what d
 #### What is a API?
 API is the acronym for Application Programming Interface, which is a software intermediary that allows 
 two applications to talk to each other.
-#### What is REST API? !!!!
+#### What is REST API? 
 A RESTful API is an application program interface (API) that uses HTTP requests to GET, PUT, POST 
 and DELETE data. A RESTful API -- also referred to as a RESTful web service or REST API -- 
 is based on representational state transfer (REST) technology, an architectural style and approach 
 to communications often used in web services development.
-#### What is JSON? When to use? !!!!!
+#### What is JSON? When to use? 
 JSON (JavaScript Object Notation) is an open standard file format, and data interchange format, 
-that uses human-readable text to store and transmit data objects consisting of attribute–value pairs 
+that uses human-readable text to store and transit data objects consisting of attribute–value pairs 
 and array data types (or any other serializable value). It is a very common data format, 
 with a diverse range of applications, such as serving as replacement for XML in AJAX systems.
-#### What is TCP/IP? What layers does it define, what are they responsible for? !!!!!
+#### What is TCP/IP? What layers does it define, what are they responsible for? 
 TCIP/ IP iss the conceptual model and set of communications protocols used in the Internet 
 and similar computer networks.
 Process/Application Layer: It is responsible for handling high-level protocols, issues of representation.
@@ -437,7 +438,7 @@ Internet Layer: The main responsibility of the internet layer is to send the pac
 and they arrive at the destination irrespective of the route they take.
 Network Access/Link Layer: This layer is mainly responsible for the transmission of the data between 
 two devices on the same network.
-#### What’s the difference between TCP and UDP? !!!!
+#### What’s the difference between TCP and UDP? 
 Transmission Control Protocol (TCP) is a connection-oriented protocol that computers use to communicate 
 over the internet. It is one of the main protocols in TCP/IP networks. 
 TCP provides error-checking and guarantees delivery of data and that packets will be delivered 
@@ -445,7 +446,7 @@ in the order they were sent.
 User Datagram Protocol (UDP) is a connectionless protocol that works just like TCP but assumes 
 that error-checking and recovery services are not required. Instead, UDP continuously sends 
 datagrams to the recipient whether they receive them or not.
-#### How does an HTTP Request look like? What are the most relevant HTTP header fields? !!!!!
+#### How does an HTTP Request look like? What are the most relevant HTTP header fields? 
 Start line: an http method, the request target (usually an url), http version
 Headers: general headers, request headers, entity headers
 Body
@@ -455,7 +456,7 @@ Headers: general headers, response headers, entity headers
 Body
 #### What is DNS? How does it work?
 DNS (Domain Name System) translates domain names to IP addresses so browsers can load Internet resources.
-#### What is a web server? !!!
+#### What is a web server? 
 Web server can refer to hardware or software, or both of them working together. 
 A web server processes incoming network requests over HTTP and several other related protocols. 
 The primary function of a web server is to store, process and deliver web pages to clients.
@@ -478,9 +479,11 @@ It is usually used to store preferences of the user.
 #### What kind of software development methodologies do you know? What are the main features of these?
 Waterfall Project Management, Agile Project Management
 #### What are the SCRUM roles?
+Scrum is a framework within which people can address complex adaptive problems, 
+while productively and creatively delivering products of the highest possible value.
 ScrumMaster, Product Owner (PO), Scrum Team
 #### What are the SCRUM ceremonies?
-Sprint Planning Meeting, Daily Standups, Retrospective, Sprint Review Meeting, Project Retrospective meeting
+Sprint Planning Meeting, Daily Standups, Sprint Review Meeting, Retrospective meeting
 #### What are the SCRUM artifacts?
 the product, product backlog, sprint backlog, sprint burndown chart, release burndown chart
 #### What is the main goal of a retrospective meeting?
