@@ -288,12 +288,23 @@ Programming languages
 Java (39)
 
 What is autoboxing and unboxing?
+Autoboxing: Converting a primitive value into an object of the corresponding wrapper class is called autoboxing. For example, converting int to Integer class. 
+Unboxing: Converting an object of a wrapper type to its corresponding primitive value is called unboxing. For example conversion of Integer to int.
+These techniques let us use primitive types and Wrapper class objects interchangeably and we do not need to perform any typecasting.
 
 If you have a variable, that shall store a positive whole number between 0 and 200, what primitive type would you use to store it?
+int (minimum value of -231 and a maximum value of 231-1)
+(You can use a short to save memory in large arrays, in situations where the memory savings actually matters.)
 
 What is the "golden rule" of variable scoping in Java? What is the lifetime of variables?
+The part of the program where the variable is accessible.
+Class scope: Each variable declared inside of a class's brackets ( {} ) with private access modifier but outside of any method, has class scope. These variables can be used everywhere in the class, but not outside of it. Marked static is known as a class variable, and the lifetime of a class variable is until the end of the program or as long as the class is loaded in memory. Not marked with static: is an instance variable, it’s lifetime is until the object stays in memory.
+Local variables: any other variables, lifetime of a local variable is until the control leaves the block in which it is declared.
+Method Scope: When a variable is declared inside a method, it has method scope and it will only be valid inside the same method
+Loop Scope: If we declare a variable inside a loop, it will have a loop scope and will only be available inside the loop.
+Bracket Scope: We can define additional scopes anywhere using brackets ({}):
 
-What is the purpose of the ‘equals()’ method?
+= What is the purpose of the ‘equals()’ method?
 What is the difference between '==' and 'equals()'?
 
 What does the ‘static’ keyword mean?
@@ -301,6 +312,7 @@ What does the ‘static’ keyword mean?
 Why is the main() method declared as static? Explain.
 
 What is the default access modifier in a class?
+When no access modifier is specified for a class, method or data member, accessible only within the same package.
 
 What is the JVM?
 
@@ -312,10 +324,15 @@ Can a long store bigger numbers than a Long?
 What kind of packages do you know under java.util.* ? Bring at least 3 examples.
 
 What are the access modifiers in Java? Which one could we use for class?
+Default – No keyword required: When no access modifier is specified for a class, method or data member, accessible only within the same package.
+Private: The methods or data members declared as private are accessible only within the class in which they are declared. Any other class of same package will not be able to access these members.
+Protected: The methods or data members declared as protected are accessible within same package or sub classes in different package.
+       Public: has the widest scope among all other access modifiers. Public classes, methods or data members which are accessible from everywhere in the program. There is no restriction on the scope of a public data members.
 
 Can an “enum” contain methods in Java? Explain.
 
 When would you use a private/protected/public attribute? What is the difference?
+They are the access modifiers. Private: accessible only within the same class. Protected: accessible within same package or sub classes in different package. Public: accessible from everywhere in the program
 
 How do you prevent developers from subclassing a class?
 
@@ -334,10 +351,11 @@ What happens if you try to delete/drop/add an item from a List, while you are it
 What happens if you try to add an item to the end of an array, while you are iterating over it?
 
 If you need to access the iterator variable after a for loop, how would you do it?
+I would use an instance variable or a class variable and save the iterators value in it, this way I can access it outside of the for loop.
 
 Which interfaces extend the Collection interface in Java. Which classes?
 
-What is the connection between equals() and hashCode()? How are they used in HashMap?
+= What is the connection between equals() and hashCode()? How are they used in HashMap?
 
 What is the difference between checked exceptions and unchecked exceptions? Could you bring example for each?
 
@@ -346,6 +364,7 @@ What is Error in Java and how does it relate to Exception?
 When does 'finally' block run? What it is used for? Could you give an example from your projects when you would use 'finally'?
 
 What is the largest number you can work with in Java?
+Long.MAX_VALUE is 9,223,372,036,854,775,807
 
 When you use method overriding, can you change the access level of the method, from protected to public? Why? When you use method overriding, can you change the access level of the method, from public to protected? Why?
 
@@ -372,6 +391,7 @@ Database (2)
 How can you connect your application to a database server? What are the possible ways?
 
 What do you know about database normalization?
+
 
 # OOP questions
 
