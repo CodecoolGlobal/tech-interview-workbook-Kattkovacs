@@ -206,23 +206,28 @@ Default – No keyword required: When no access modifier is specified for a clas
 Private: The methods or data members declared as private are accessible only within the class in which they are declared. Any other class of same package will not be able to access these members.
 Protected: The methods or data members declared as protected are accessible within same package or sub classes in different package.
 Public: has the widest scope among all other access modifiers. Public classes, methods or data members which are accessible from everywhere in the program. There is no restriction on the scope of a public data members.
+
 #### Can an “enum” contain methods in Java? Explain.
+
 You can add methods to a Java enum too. Here is an example:
+
+```java
 public enum Level {
-HIGH
-(3), //calls constructor with value 3
-MEDIUM(2), //calls constructor with value 2
-LOW //calls constructor with value 1
-(1)
-; // semicolon needed when fields / methods follow
-private final int levelCode;
-Level(int levelCode) {
-this.levelCode = levelCode;
+    HIGH
+    (3), //calls constructor with value 3
+    MEDIUM(2), //calls constructor with value 2
+    LOW //calls constructor with value 1
+    (1)
+    ; // semicolon needed when fields / methods follow
+    private final int levelCode;
+    Level(int levelCode) {
+        this.levelCode = levelCode;
+    }
+    public int getLevelCode() {
+        return this.levelCode;
+    }
 }
-public int getLevelCode() {
-return this.levelCode;
-}
-}
+```
 You call a Java enum method via a reference to one of the constant values. Here is
 Java enum method call example:
 Level level = Level.HIGH;
