@@ -85,12 +85,17 @@ In class-based object-oriented programming, a constructor is a special type of s
 
 #### 14. Do we require parameter for constructors?
 
-There are two type of constructor in Java: No-argument constructor: A constructor that has no parameter is known as default constructor. If we don’t define a constructor in a class, then compiler creates default constructor(with no arguments) for the class. Parameterized Constructor: A constructor that has parameters is known as parameterized constructor. If we want to initialize fields of the class with your own values, then use a parameterized constructor. class Geek { String name; int id;
+There are 3 type of constructor in Java: 
+-   Default: not seen in code, has no parameter, body is empty. If we don’t define a constructor in a class, then compiler creates default constructor (with no arguments) for the class. 
+-   No-argument constructor: seen in code, has no parameter, body can be empty, or filled with code. 
+-   Parameterized Constructor: A constructor that has parameters is known as parameterized constructor. If we want to initialize fields of the class with your own values, then use a parameterized constructor. Body is filled with code, parameters are used.
+
 ```java
+class Geek { String name; int id;
 Geek(String name, int id) { 
     this.name = name; 
     this.id = id; 
-} 
+    } 
 }
 ```
 
