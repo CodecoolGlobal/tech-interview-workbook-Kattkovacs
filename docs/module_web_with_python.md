@@ -1,517 +1,4 @@
-# Web with Python questions
-
-## Software design
-
-### Clean code
-
-#### Point out 5 suggestions, how to format an SQL query!
-
-1. Explain your queries in comments.
-2. Keep the queries readable with proper indentation and alignment.
-3. Avoid repetition.
-4. A reusable query should do one thing, and do it properly.
-5. Name objects in your database logically and consistently.
-
-#### What layers can you name in a simple web application?
-
-Presentation (UI), Application, Data
-
-### Error handling
-
-#### What error can occur, when an array does not have an element on the requested index?
-
-IndexError: List index out of range
-
-#### What is the “finally” block, and how would you use it?
-
-The try statement can have a finally block (it is optional). It executes no matter what, as the last step of the error handling.
-
-#### Why should we catch special exception types?
-
-General exceptions will not let you know the exact root cause of the issue especially if many steps are involved in a method implementation. Also, in many cases, we need to react to errors based on their type with different exception handling.
-
-### Security
-
-#### What is SQL injection? How to protect an application against it?
-
-SQL injection is a technique by which vulnerable (poorly designed) web applications can be attacked by harming the database. You can protect your application by: sanitizing user input, escaping, parameterising (%s), random table names
-
-#### What is XSS? How to protect an application against it?
-
-XSS (also called cross-site scripting) is a web security vulnerability that allows an attacker to compromise the interactions that users have with a vulnerable application. It is often used to impersonate a user and access data/funcionalities/permissions that the user has. It is based on manipulating a vulnerable web site so that it returns malicious JavaScript to users. You can protect your application by: filter input, encode data on output, use Content Security Policy.
-
-#### How to properly store passwords?
-
-Hashed and salted.
-
-#### What is HTTPS?
-
-Hypertext Transfer Protocol Secure. It is used for secure communication in a network and widely used on the internet. It protects the privacy and integrity of the exchanged data and prevents third-party attacks. HTTPS uses an encryption protocol to encrypt communications. The protocol is called Transport Layer Security (TLS). This protocol secures communications by using what’s known as an asymmetric public key infrastructure.
-
-#### What is encryption and decryption?
-
-Encryption is the practice of modifying information in a way that only someone with a corresponding key can get the original data and read it. It is a two-way function, which means that encripted data can be decrypted with the appropriate key.
-
-#### What is hashing?
-
-Hashing is the practice of using an algorithm to map data. Unlike encryption, it is a one-way function. It is often used to store passwords.
-
-#### What is the difference between encryption and hashing? When would you use which?
-
-Encryption is a two-way function, while hashing is one-way. Encryption is meant protect data in transit and hashing is meant to verify if the examined data have been modified or not.
-
-#### What encryption methods do you know?
-
-Triple DES, RSA, Blowfish, Twofish, AES
-
-#### What hashing methods do you know?
-
-Division-remainder method, folding method, radix transformation method, digit rearrangement method
-
-#### How/where would you store sensitive data (like db password, API key, ...) of your application?
-
-In environment variables
-
-## Computer science
-
-### Algorithms
-
-#### What is the difference between Stack and Queue data structure?
-
-Stack A stack is a linear data structure in which elements can be inserted and deleted only from one side of the list, called the top. A stack follows the LIFO (Last In First Out) principle, i.e., the element inserted at the last is the first element to come out. The insertion of an element into stack is called push operation, and deletion of an element from the stack is called pop operation. In stack we always keep track of the last element present in the list with a pointer called top.
-Queue: A queue is a linear data structure in which elements can be inserted only from one side of the list called rear, and the elements can be deleted only from the other side called the front. The queue data structure follows the FIFO (First In First Out) principle, i.e. the element inserted at first in the list, is the first element to be removed from the list. The insertion of an element in a queue is called an enqueue operation and the deletion of an element is called a dequeue operation. In queue we always maintain two pointers, one pointing to the element which was inserted at the first and still present in the list with the front pointer and the second pointer pointing to the element inserted at the last with the rear pointer.
-
-#### What is BubbleSort? Describe the main logic of this sorting algorithm.
-
-Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order.
-
-def bubbleSort(arr):
-n = len(arr)
-for i in range(n):
-for j in range(0, n-i-1):
-if arr[j] > arr[j+1] :
-arr[j], arr[j+1] = arr[j+1], arr[j]
-
-#### Explain the process of finding the maximum and minimum value in a list of numbers!
-
-Assign a variable to min and max which are both the first elements of the array.
-Then loop through the array starting from the second element and examine each element.
-If the examined element is bigger than the value assigned to the max variable,
-change the max variable value to that element. Same with the min, but the condition is that
-the examined element is smaller.
-
-#### Explain the process of calculating the average value in an array of numbers!
-
-Sums up the values of the array and divides the sum with the length of the array.
-
-#### What is Big O complexity? Explain time and space complexity!
-
-Big O Notation is the language we use to describe the complexity of an algorithm,
-we use it for talking about how long an algorithm takes to run.
-It is how we compare the efficiency of different approaches to a problem.
-With Big O Notation we express the runtime in terms of — how quickly it grows relative to the input,
-as the input gets larger.
-Time: O(1) & O(log n) < O(n) < O (n log n) < O(n^2) < O(2^n) < O(n!)
-Space: memory optimization
-
-#### Explain the process of calculating the average value in a linked list of numbers!
-
-Summing the values and dividing them by the list length.
-
-### Procedural
-
-#### How the CASE condition works in SQL?
-
-The CASE statement goes through conditions and returns a value when the first condition is met.
-Once a condition is true, it will return the result and won't read the further conditions in the CASE statement.
-In case there are no true conditions, the ELSE clause will apply.
-
-#### How the switch-case condition works in JavaScript?
-
-The switch statement is used to perform different actions based on different conditions
-
-#### How to achieve a switch-case-like structure in Python?
-
-Define a function with one parameter.
-Inside a the function create a dictionary with keys being the 'case' values
-and values being the return values of that case statement.
-The function should return the dictionary.get(parameter, default case).
-
-#### Explain variable scoping in Python!
-
-Where a variable is accessible depends on how it is defined.
-We call the part of a program where a variable is accessible its scope.
-
-#### What’s the difference between const and var in JavaScript?
-
-Const is block scoped and cannot be reassigned, var is function scoped and can be reassigned
-
-#### How the list comprehension looks like in Python?
-
-_result_ = [*transform* *iteration* *filter*]
-num_list = [ i for i in range(10) ]
-
-#### How the “ternary expression” looks like in Python?
-
-if 'condition' is True:
-'condition_is_true'
-else:
-'condition_is_false'
-
-#### How the ternary expression looks like in JavaScript?
-
-if ('condition' === true) {
-'condition_is_true'
-} else {
-'condition_is_false'
-}
-
-#### How to import a function from another module in Python?
-
-from [module-name] import [function-name]
-
-#### How to import a function from another module in JavaScript?
-
-Export the function from the other module with the 'export' keyword and import the function
-to the original module like: import {function} from 'othermodule.js'.
-
-### Functional
-
-#### What is recursion?
-
-Recursion is a method where a function calls itself once or more in its body.
-
-#### Write a recursive function which calculates the Fibonacci numbers!
-
-def fibo_num(i):
-if i <= 1:
-return i
-else:
-return(fibo_num(i-1) + fibo_num(i-2))
-
-#### How to store a function in a variable in Python?
-
-Define the function:
-def my_func(i):
-print(i)
-
-Address the function to a variable:
-my_var = my_func
-
-You can call the function with the variable:
-my_var(10) --- prints 10
-
-#### List the ways of defining a callable logical unit in JavaScript!
-
-as ordinary function, as arrow function, assign a function to the property of an object
-and call it as a method via that object
-
-#### What is an event listener? How to attach one?
-
-Event listeners are meant to determine which item of the html should react to what type of event
-and what function should it trigger. Event listeners can be attached in javascript to dom elements
-by the addEventListener built-in function.
-
-#### How to trigger an event in JavaScript?
-
-With the dispatchEvent function.
-
-#### What is a callback function? Tell some examples of its usage.
-
-A callback function is an executable code that can be passed as the argument of another
-function which executes the callback function. For e.g.: the built-in setTimeout function
-
-#### What is a Python decorator? How does it work? Tell some examples of its usage.
-
-A decorator takes in a function, adds some functionality and returns it without permanently modifying it.
-For e.g.: in Flask the app.route is used as decorator.
-
-#### What is the difference between synchronous and asynchronous execution?
-
-When a piece of code is executing synchronously, the program waits for it to finish before moving to the next task.
-With asynchronous execution tasks will be executed regardless of the other tasks finish time.
-
-## Programming languages
-
-### SQL
-
-#### How can you connect your application to a database server? What are the possible ways?
-
-For example with the help of psycopg2.
-
-#### When do you use the DISTINCT keyword in SQL?
-
-When you want to get only the unique values of a table.
-
-#### What are aggregate functions in SQL? Give 3 examples.
-
-Aggregate functions are meant to group together values of multiple rows based on some kind of criteria.
-For e.g.: COUNT(), AVG(), SUM()
-
-#### What kind of JOIN types do you know in SQL? Could you give examples?
-
-left join, right join, inner join, outer join, full join
-
-#### What are the constraints in sql?
-
-Constraints are rules that apply to data in a certain column of a table.
-For e.g.: you can determine if a column should only consist of integers or be unique etc.
-
-#### What is a cursor in SQL? Why would you use one?
-
-An SQL cursor is meant to retrieve data one row at a time.
-It is best to use cursors to update data row by row in a table.
-
-#### What are database indexes? When to use?
-
-Indexes are used to speed up data retrieval from a database.
-The index keys are based on the table's columns.
-It is useful when we want to select some values of a large database.
-
-#### What are database transactions? When to use?
-
-A transaction is a unit of work that is performed against a database.
-Transactions are units or sequences of work accomplished in a logical order,
-whether in a manual fashion by a user or automatically by some sort of a database program.
-
-#### What kind of database relations do you know? How to define them?
-
-One to One Relationships
-One to Many and Many to One Relationships
-Many to Many Relationships
-Self Referencing Relationships
-
-#### You have a table with an “address” field which contains data like “3525, Miskolc, Régiposta 9.” (postcode, city, street name and address). How would you query all records related to Miskolc?
-
-SELECT \* FROM table WHERE address LIKE '%Miskolc%';
-
-#### How would you keep track of what kind of data has changed after an UPDATE or DELETE operation in a table?
-
-I would create a table which would store the deleted/original version data.
-
-### HTML & CSS
-
-#### What’s the difference between XML, XHTML and HTML?
-
-XHTML is HTML written as XML.
-XHTML is very similar to HTML, but it is stricter.
-While HTML runs on the major browsers while containing 'bad' practices
-(for e.g.: not closed elements, missing '<!DOCTYPE ....>'),
-XHTML needs to contain everything according to rules.
-
-#### How to include a JavaScript file in a webpage?
-
-in the hesd tag: '<script src={path/to/file.js}></script>'
-
-#### How to include a CSS file in a webpage?
-
-in the head tag: '<link rel="stylesheet" href="{path/to/file.css">'
-
-#### How to select an element using its id in CSS?
-
-With a hashtag and the id name, like: #id-name
-
-#### How to select elements using their class in CSS?
-
-Dot and the name of the class, like: .class-name
-
-#### How to select elements which have the ‘alpha’ and ‘beta’ classes in CSS?
-
-.alpha.beta{ }
-
-#### How to select all list items in all ordered lists on the page in CSS?
-
-ol li{ }
-
-#### How to select elements using their attributes in CSS?
-
-[attribute='value']
-
-#### What are UX and UI?
-
-UX: user experience, the user's interaction or experience with the product
-UI: user interface, focuses on the user's visual experience
-
-#### Please list some points that an application should fulfill to have good UX.
-
-Clear and readable, nice design, use familiar elements, user friendly
-
-#### What is XML, XSLT, DTD?
-
-XML: stands for eXtensible Markup Language, it was designed to store and transport data,
-it is both human- and machine-readable
-XSLT: eXtensible Stylesheet Language Transformations, it is the recommended style sheet language for XML
-DTD: Document Type Definition, it defines the structure and the legal elements and attributes of an XML document
-
-#### What is the difference between HTML and XML?
-
-XML is meant to carry data based on what the data is, while HTML's purpose is to display data based on how it looks.
-
-### Javascript
-
-#### What is javascript?
-
-It is a programming language used to run codes on the browser (client) side of the program.
-
-#### When to use AJAX? Bring examples of its usage.
-
-AJAX stands for Asynchronous JavaScript and XML. With AJAX the data on a webpage can be modified without
-refreshing the whole page. For e.g.: Facebook uses AJAX to load new posts on your timeline.
-
-#### What is DOM and how to manipulate it from Javascript?
-
-DOM is Document Object Model. It basically represents the internal of the page.
-With DOM manipulation we can choose a document element (by class, ba tag, by id)
-and modify its content or style, or we can create or delete elements.
-
-#### What are events and how/why to use them in Javascript?
-
-HTML and Javascript interacts with each other through events which are usually triggered by the user
-on the browser. For e.g.: user clicks on a button, user presses a key, etc.
-JS can react to these events with eventHandlers.
-
-#### What is event bubbling/capturing? How would you use it?
-
-When an event happens on an element, it first runs the handlers on it, then on its parent,
-then all the way up on other ancestors. Event Capturing is when the event starts from top element
-to target element.
-
-#### What is JSON and how do we use it?
-
-JSON (JavaScript Object Notation) is an open standard file format, and data interchange format,
-that uses human-readable text to store and transmit data objects consisting of attribute–value pairs
-and array data types (or any other serializable value). It is a very common data format,
-with a diverse range of applications, such as serving as replacement for XML in AJAX systems.
-
-## Software engineering
-
-### Version control
-
-#### What type of branching strategy would you use?
-
-Git flow workflow. I would create a Develop branch from the master and a new branch for each feature from the Develop branch.
-
-#### What would you do if you find a bug on the production code (master branch)?
-
-I would open a new branch and fix the bug on it and then make a pull request. Or find a version in the commits that is bug-free.
-
-#### How can you move changes from one branch to another in GIT?
-
-With a pull request (hopefully after a successful merge/rebase).
-
-#### How does a VCS help with code reviews?
-
-We can see who developed and what feature through each commit. It is also easier to catch the cause of a bug.
-
-#### What is your favorite git command? Why?
-
-git commit --amend, because you can easily add some additional changes to a commit.
-
-#### What does remote/local mean in Git?
-
-Respositories/branches are local when they are only available on your local computer. Remote repos/branches are a version of your project that is hosted on the Internet (for e.g.: github) or some kind of network.
-
-### DevOps
-
-#### Why is it good to use a package manager software?
-
-It eliminates the need for manual installs and updates, it provides centralized distribution and hosting,it lets you know the library versions you’re using, it helps prevent incompatible files from mixing Together
-
-#### Why is it good to use a virtual environment for a project?
-
-The main purpose of Python virtual environments is to create an isolated environment for Python projects. This means that each project can have its own dependencies, regardless of what dependencies every other project has.
-
-### Networks
-
-#### What kind of HTTP status codes do you know?
-
-1xx: Informational response, 2xx: Success, 3xx: Redirection, 4xx: Client error, 5xx: Server error
-
-#### What is a API?
-
-API is the acronym for Application Programming Interface, which is a software intermediary that allows two applications to talk to each other.
-
-#### What is REST API? !!!!
-
-A RESTful API is an application program interface (API) that uses HTTP requests to GET, PUT, POST and DELETE data. A RESTful API -- also referred to as a RESTful web service or REST API -- is based on representational state transfer (REST) technology, an architectural style and approach to communications often used in web services development.
-
-#### What is JSON? When to use? !!!!!
-
-JSON (JavaScript Object Notation) is an open standard file format, and data interchange format, that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and array data types (or any other serializable value). It is a very common data format, with a diverse range of applications, such as serving as replacement for XML in AJAX systems.
-
-#### What is TCP/IP? What layers does it define, what are they responsible for? !!!!!
-
-TCIP/ IP iss the conceptual model and set of communications protocols used in the Internet and similar computer networks.
-Process/Application Layer: It is responsible for handling high-level protocols, issues of representation.
-Host-to-Host/Transport Layer: The transport layer is responsible for the reliability, flow control, and correction of data which is being sent over the network.
-Internet Layer: The main responsibility of the internet layer is to send the packets from any network, and they arrive at the destination irrespective of the route they take.
-Network Access/Link Layer: This layer is mainly responsible for the transmission of the data between two devices on the same network.
-
-#### What’s the difference between TCP and UDP? !!!!
-
-Transmission Control Protocol (TCP) is a connection-oriented protocol that computers use to communicate over the internet. It is one of the main protocols in TCP/IP networks. TCP provides error-checking and guarantees delivery of data and that packets will be delivered in the order they were sent.
-
-User Datagram Protocol (UDP) is a connectionless protocol that works just like TCP but assumes that error-checking and recovery services are not required. Instead, UDP continuously sends datagrams to the recipient whether they receive them or not.
-
-#### How does an HTTP Request look like? What are the most relevant HTTP header fields? !!!!!
-
-Start line: an http method, the request target (usually an url), http version
-Headers: general headers, request headers, entity headers
-Body
-
-#### How does an HTTP Response look like? What are the most relevant HTTP header fields?
-
-Status line: protocol version, status code, status text
-Headers: general headers, response headers, entity headers
-Body
-
-#### What is DNS? How does it work?
-
-DNS (Domain Name System) translates domain names to IP addresses so browsers can load Internet resources.
-
-#### What is a web server? !!!
-
-Web server can refer to hardware or software, or both of them working together. A web server processes incoming network requests over HTTP and several other related protocols. The primary function of a web server is to store, process and deliver web pages to clients.
-
-#### Explain the client-server architecture.
-
-The client-server architecture describes the relationship of cooperating programs in an application. The server component provides a function or service to one or many clients, which initiate requests for such services.
-
-#### What would you use a session for?
-
-Session is often used to keep a user logged in on a webpage, so they don't have to log in after every refresh. This data is stored on the server side, so -- unlike cookies -- the user cannot modify it.
-
-#### What would you use a cookie for?
-
-Cookie is a small piece of data sent from a website and stored on the user's computer by the user's web browser while the user is browsing. Since it is stored on the client side, it can be deleted or modified by the user or the user can disable the whole cookie feature in the user's browser. It is usually used to store preferences of the user.
-
-## Software Development Methodologies
-
-#### What kind of software development methodologies do you know? What are the main features of these?
-
-Waterfall Project Management, Agile Project Management
-
-#### What are the SCRUM roles?
-
-ScrumMaster, Product Owner (PO), Scrum Team
-
-#### What are the SCRUM ceremonies?
-
-Sprint Planning Meeting, Daily Standups, Retrospective, Sprint Review Meeting, Project Retrospective meeting
-
-#### What are the SCRUM artifacts?
-
-the product, product backlog, sprint backlog, sprint burndown chart, release burndown chart
-
-#### What is the main goal of a retrospective meeting?
-
-The main goal of the retrospective meeting is to evaluate the latest sprint, identify the good and bad practices and improve future sprints.
-
-#### Explain, when would you recommend to use the waterfall methodology?
-
-The waterfall project is suitable for shorter projects, which includes clear requirements and there is a low possiobility that the project scope would change.
-
-# ............
+# Web2
 
 # Web with Python questions
 
@@ -519,7 +6,7 @@ The waterfall project is suitable for shorter projects, which includes clear req
 
 ### Clean code
 
-#### Point out 5 suggestions, how to format an SQL query!
+#### 1. Point out 5 suggestions, how to format an SQL query!
 
 1. Capitalize SQL keywords.
 2. Organize it not just horizontally, but also vertically:
@@ -527,7 +14,7 @@ The waterfall project is suitable for shorter projects, which includes clear req
    - use indentation to improve readability
 3. Use a syntax that prevents SQL injection attacks (wildcards etc).
 
-#### What layers can you name in a simple web application?
+#### 2. What layers can you name in a simple web application?
 
 **View layer**:
 
@@ -553,7 +40,7 @@ Provides retrieved data for the Business Logic layer.
 
 ### Error handling
 
-#### What error can occur, when an array does not have an element on the requested index?
+#### 3. What error can occur, when an array does not have an element on the requested index?
 
 Python:
 
@@ -565,18 +52,18 @@ JavaScript:
 - the script doesn't terminate
 - results in `undefined`
 
-#### What is the "finally" block, and how would you use it?
+#### 4. What is the "finally" block, and how would you use it?
 
 Code in a `finally` block gets executed regardless of the outcome of the try-except block before it.
 
-#### Why should we catch special exception types?
+#### 5.Why should we catch special exception types?
 
 - To easily identify errors and fix / communicate them.
 - To prevent the program from crashing (if we expect the error).
 
 ### Security
 
-#### What is SQL injection? How to protect an application against it?
+#### 6. What is SQL injection? How to protect an application against it?
 
 A computer attack in which malicious code is embedded in a poorly-designed application and then passed to the backend database.
 
@@ -602,7 +89,7 @@ Stored procedures are better than parameterized queries for several reasons:
 
 > Building SQL statements **dynamically** by **concatenating strings** is what causes an SQL injection to happen.
 
-#### What is XSS? How to protect an application against it?
+#### 7. What is XSS? How to protect an application against it?
 
 **Cross-Site Scripting (XSS)** attacks are a type of **injection**, in which malicious scripts are injected into otherwise benign and trusted websites.
 
@@ -633,11 +120,11 @@ Steps to take:
 
 > Use templating system or web development framework that provides context-aware **auto-escaping**!
 
-#### How to properly store passwords?
+#### 8. How to properly store passwords?
 
 We store hashed passwords in a database.
 
-#### What is HTTPS?
+#### 9. What is HTTPS?
 
 **Hypertext Transfer Protocol Secure (HTTPS)** is the secure version of HTTP, which is the primary protocol used to send data between a web browser and a website.
 
@@ -661,7 +148,7 @@ Advantages of HTTPS:
 - Faster performance (due to reduced size of data)
 - SEO
 
-#### What is encryption and decryption?
+#### 10. What is encryption and decryption?
 
 Encryption is a way of **scrambling** data so that only authorized parties can understand the information. In technical terms, it is the process of **converting plaintext to ciphertext**. In simpler terms, encryption takes readable data and alters it so that it **appears random**.
 
@@ -669,11 +156,11 @@ Encryption requires the use of an **encryption key**: a set of mathematical valu
 
 Although encrypted data appears random, encryption proceeds in a logical, predictable way, so that a party receiving the encrypted data and in possession of the key used to encrypt the data can _decrypt_ the data, turning it back into plaintext.
 
-#### What is hashing?
+#### 11. What is hashing?
 
 Hash algorithms are **one way** functions. They turn any amount of data into a **fixed-length** "fingerprint" or "signature" that **cannot be reversed**. They also have the property that if the **input changes** by even a tiny bit, the resulting hash is _completely different_.
 
-#### What is the difference between encryption and hashing? When would you use which?
+#### 12. What is the difference between encryption and hashing? When would you use which?
 
 Encryption is a method for encoding information to keep it secret. Hashing is a signature for a file or password.
 
@@ -697,7 +184,7 @@ Encryption is a method for encoding information to keep it secret. Hashing is a 
 - Hashing helps you find specific data in a huge **database**.
 - Unlike with encryption, hashing may produce **hash collisions**.
 
-#### What encryption methods do you know?
+#### 13. What encryption methods do you know?
 
 **Symmetric Encryption**:
 
@@ -722,7 +209,7 @@ Encryption is a method for encoding information to keep it secret. Hashing is a 
 
 > A cipher can be **reciprocal** (symmetric) if it is used for both encryption and decryption, or **non-reciprocal** (asymmetric) if a transformation to the key is required when using it in reverse.
 
-#### What hashing methods do you know?
+#### 14. What hashing methods do you know?
 
 **MD (Message Digest)** family:
 
@@ -750,7 +237,7 @@ Ways to crack a hashed password:
 - Lookup tables (and Reverse Lookup tables)
 - Rainbow tables
 
-#### How/where would you store sensitive data (like db password, API key, ...) of your application?
+#### 15. How/where would you store sensitive data (like db password, API key, ...) of your application?
 
 Storing secrets in the OS environment.
 
@@ -758,7 +245,7 @@ Storing secrets in the OS environment.
 
 ### Algorithms
 
-#### What is the difference between Stack and Queue data structure?
+#### 16. What is the difference between Stack and Queue data structure?
 
 **Stack**:
 
@@ -778,19 +265,19 @@ Storing secrets in the OS environment.
 - We maintain _2 pointers_ (-> front, -> rear)
 - Implemented as a linked list.
 
-#### What is BubbleSort? Describe the main logic of this sorting algorithm.
+#### 17. What is BubbleSort? Describe the main logic of this sorting algorithm.
 
 A bubble-sort algorithm iterates through the given list, and compares each element's value to the next element's value. Given the list is to be sorted in ascending order, the algorithm switches the elements' places every time an element's value is greater than the value of the next element.
 
-#### Explain the process of finding the maximum and minimum value in a list of numbers!
+#### 18. Explain the process of finding the maximum and minimum value in a list of numbers!
 
 Iterate through the array and keep track of the actual highest / lowest number.
 
-#### Explain the process of calculating the average value in an array of numbers!
+#### 19. Explain the process of calculating the average value in an array of numbers!
 
 Iterate through the array and return the sum of the numbers divided by the length of the array.
 
-#### What is Big O complexity? Explain time and space complexity!
+#### 20. What is Big O complexity? Explain time and space complexity!
 
 In computer science, big O notation is used to classify algorithms according to how their run **time** or **space** requirements grow **as the input size grows**.
 
@@ -824,13 +311,13 @@ for (let element of elements) {
 
   (The iterative halving of data sets described in the binary search example produces a growth curve that peaks at the beginning and slowly flattens out as the size of the data sets increase e.g. an input data set containing 10 items takes one second to complete, a data set containing 100 items takes two seconds, and a data set containing 1000 items will take three seconds. Doubling the size of the input data set has little effect on its growth as after a single iteration of the algorithm the data set will be halved and therefore on a par with an input data set half the size. This makes algorithms like binary search extremely efficient when dealing with large data sets).
 
-#### Explain the process of calculating the average value in a linked list of numbers!
+#### 21. Explain the process of calculating the average value in a linked list of numbers!
 
 Make a SUM variable. Because linked lists don't have indices, we have to make a counter. We go trough the list in a while loop and add its value to SUM, till the current element is NULL. Then we divide the SUM with the counter.
 
 ### Procedural
 
-#### How the CASE condition works in SQL?
+#### 22. How the CASE condition works in SQL?
 
 The PostgreSQL `CASE` expression is the same as **if/else statement** in other programming languages.
 
@@ -852,7 +339,7 @@ FROM film
 ORDER BY title;
 ```
 
-#### How the switch-case condition works in JavaScript?
+#### 23. How the switch-case condition works in JavaScript?
 
 A switch statement can replace multiple `if` checks.
 It gives a more descriptive way to compare a value with multiple variants.
@@ -875,11 +362,11 @@ switch (a) {
 }
 ```
 
-#### How to achieve a switch-case-like structure in Python?
+#### 24. How to achieve a switch-case-like structure in Python?
 
 if-elif-else blocks
 
-#### Explain variable scoping in Python!
+#### 25. Explain variable scoping in Python!
 
 Not all variables are accessible from all parts of our program, and not all variables exist for the same amount of time. Where a variable is accessible and how long it exists depend on how it is defined.
 We call the part of a program _where_ a variable is accessible its **scope**, and the _duration_ for which the variable exists its **lifetime**.
@@ -890,7 +377,7 @@ A variable which is defined _inside_ a function is _local_ to that function. It 
 
 LEGB rule...
 
-#### What’s the difference between const and var in JavaScript?
+#### 26. What’s the difference between const and var in JavaScript?
 
 `var`:
 
@@ -910,23 +397,23 @@ LEGB rule...
 
 Use `const` whenever you can. If the value will change, use `let` instead.
 
-#### How the list comprehension looks like in Python?
+#### 27. How the list comprehension looks like in Python?
 
 `doubles_of_x = [x * 2 for x in elements]`
 
-#### How the "ternary expression" looks like in Python?
+#### 28. How the "ternary expression" looks like in Python?
 
 `a if a < b else b`
 
-#### How the ternary expression looks like in JavaScript?
+#### 29. How the ternary expression looks like in JavaScript?
 
 `a < b ? a : b`
 
-#### How to import a function from another module in Python?
+#### 30. How to import a function from another module in Python?
 
 `from module import function (as ...)`
 
-#### How to import a function from another module in JavaScript?
+#### 31. How to import a function from another module in JavaScript?
 
 `export function`
 
@@ -934,11 +421,11 @@ Use `const` whenever you can. If the value will change, use `let` instead.
 
 ### Functional
 
-#### What is recursion?
+#### 32. What is recursion?
 
 A recursive function is a function defined in terms of itself via **self-referential expressions**. This means that the function will continue to call itself and repeat its behavior until some condition is met to return a result.
 
-#### Write a recursive function which calculates the Fibonacci numbers!
+#### 33. Write a recursive function which calculates the Fibonacci numbers!
 
 ```javascript
 fibonacciNaiveRecursive = (n) => {
@@ -950,11 +437,11 @@ fibonacciNaiveRecursive = (n) => {
 };
 ```
 
-#### How to store a function in a variable in Python?
+#### 34. How to store a function in a variable in Python?
 
 `x = function_name`
 
-#### List the ways of defining a callable logical unit in JavaScript!
+#### 35. List the ways of defining a callable logical unit in JavaScript!
 
 `function myFunc () {}`
 
@@ -962,7 +449,7 @@ fibonacciNaiveRecursive = (n) => {
 
 `const myFunc = () => {};`
 
-#### What is an event listener? How to attach one?
+#### 36. What is an event listener? How to attach one?
 
 The `EventListener` interface represents an object that can handle an event dispatched by an `EventTarget` object.
 
@@ -972,13 +459,13 @@ buttonElement.addEventListener('click', function (event) {
 });
 ```
 
-#### How to trigger an event in JavaScript?
+#### 37. How to trigger an event in JavaScript?
 
 Using standard DOM actions (e.g. click on the selected element).
 
 In JS code: `element.dispatchEvent(event);`.
 
-#### What is a callback function? Tell some examples of its usage.
+#### 38. What is a callback function? Tell some examples of its usage.
 
 A callback function is any executable code that is passed as an **argument** to other code that is expected to _call back_ (execute) the argument at a given time.
 
@@ -988,7 +475,7 @@ This execution may be _immediate_ as in a **synchronous callback**, or it might 
 - `setInterval()`
 - API callbacks
 
-#### What is a Python decorator? How does it work? Tell some examples of its usage.
+#### 39. What is a Python decorator? How does it work? Tell some examples of its usage.
 
 Decorators add functionality to an existing code. This is also called _metaprogramming_ as a part of the program tries to modify another part of the program at **compile time**.
 
@@ -1006,7 +493,7 @@ def make_pretty(func):
 
 In Flask's case, the framework can add request receiving logic before running your code, and figure out how to send it back to the user, after your logic.
 
-#### What is the difference between synchronous and asynchronous execution?
+#### 40. What is the difference between synchronous and asynchronous execution?
 
 When you execute something synchronously, you **wait** for it to finish before moving on to another task.
 
@@ -1016,16 +503,16 @@ When you execute something asynchronously, you can move on to another task, and*
 
 ### SQL
 
-#### How can you connect your application to a database server? What are the possible ways?
+#### 41. How can you connect your application to a database server? What are the possible ways?
 
 We need a database server, a connection/driver layer and a data connection from the Python side.
 We connect to the server with a username-password, a hostname, and a DB name, in the form that the connection/driver layer expects. It usually also includes a port. This will give us an option to use a **cursor** in python that we can use to **execute commands** on the DB server.
 
-#### When do you use the DISTINCT keyword in SQL?
+#### 42. When do you use the DISTINCT keyword in SQL?
 
 The `SELECT DISTINCT` statement is used to return values that are distinct / unique.
 
-#### What are aggregate functions in SQL? Give 3 examples.
+#### 43. What are aggregate functions in SQL? Give 3 examples.
 
 Aggregate functions compute a **single result** from a set of input values.
 
@@ -1041,7 +528,7 @@ Examples:
 - `BOOL_AND()`
 - `BOOL_OR()`
 
-#### What kind of JOIN types do you know in SQL? Could you give examples?
+#### 44. What kind of JOIN types do you know in SQL? Could you give examples?
 
 `(INNER) JOIN`:
 Returns records that have matching values in both tables
@@ -1055,7 +542,7 @@ Opposite of the left outer join -- rarely used
 `FULL (OUTER) JOIN`:
 Returns all records when there is a match in either left or right table (cartesian product)
 
-#### What are the constraints in sql?
+#### 45. What are the constraints in sql?
 
 SQL constraints are used to specify rules for data in a table.
 
@@ -1080,7 +567,7 @@ The following constraints are commonly used in SQL:
 - `INDEX`:
   Used to create and retrieve data from the database very quickly
 
-#### What is a cursor in SQL? Why would you use one?
+#### 46. What is a cursor in SQL? Why would you use one?
 
 A database cursor can be thought of as a **pointer** to a specific row within a query result. The pointer can be moved from one row to the next.
 
@@ -1090,13 +577,13 @@ Think of it this way: a **SQL result is like a bag**, you get to hold a whole bu
 
 Psycopg is the most popular PostgreSQL _database adapter_ for the Python programming language. It features cursors like `DictCursor` and `RealDictCursor`.
 
-#### What are database indexes? When to use?
+#### 47. What are database indexes? When to use?
 
 A database index allows a query to efficiently retrieve data from a database. Indexes are related to specific tables and consist of one or more keys.
 
 The keys are based on the tables' columns. By comparing keys to the index it is possible to find one or more database records with the same value.
 
-#### What are database transactions? When to use?
+#### 48. What are database transactions? When to use?
 
 A transaction is a unit of work that you want to treat as "a whole". It has to either happen in full or not at all.
 
@@ -1115,7 +602,7 @@ A transaction, in the context of a database, is a logical unit that is independe
 - **Durability**:
   Durability guarantees that transactions that have committed will survive permanently. For example, if a flight booking reports that a seat has successfully been booked, then the seat will remain booked even if the **system crashes**. Durability can be achieved by flushing the transaction's log records to non-volatile storage (NVM) before acknowledging commitment.
 
-#### What kind of database relations do you know? How to define them?
+#### 49. What kind of database relations do you know? How to define them?
 
 **One-to-One**:
 
@@ -1130,19 +617,19 @@ A transaction, in the context of a database, is a logical unit that is independe
 
 - In a many-to-many relationship, a row in table "A" can have many matching rows in table "B", and vice versa.
 
-#### You have a table with an "address" field which contains data like "3525, Miskolc, Régiposta 9." (postcode, city, street name and address). How would you query all records related to Miskolc?
+#### 50. You have a table with an "address" field which contains data like "3525, Miskolc, Régiposta 9." (postcode, city, street name and address). How would you query all records related to Miskolc?
 
 `SELECT * FROM table WHERE city = 'Miskolc';`
 
 `SELECT * FROM table WHERE address LIKE '%, Miskolc, %';`
 
-#### How would you keep track of what kind of data has changed after an UPDATE or DELETE operation in a table?
+#### 51. How would you keep track of what kind of data has changed after an UPDATE or DELETE operation in a table?
 
 In general, if your application is structured into layers, have the data access tier call a stored procedure on your database server to write a log of the database changes.
 
 ### HTML & CSS
 
-#### What’s the difference between XML, XHTML and HTML?
+#### 52. What’s the difference between XML, XHTML and HTML?
 
 XML and HTML were designed with different goals.
 
@@ -1160,35 +647,35 @@ XHTML:
 - XHTML was developed to make HTML more **extensible** and **flexible** to work with other data formats (such as XML).
 - In addition, browsers ignore errors in HTML pages, and try to display the website even if it has some errors in the markup. So XHTML comes with a **much stricter error handling**.
 
-#### How to include a JavaScript file in a webpage?
+#### 53. How to include a JavaScript file in a webpage?
 
 Use the `<script>` tag that wraps around JavaScript code directly
 
 Use an external JavaScript file by adding a link to it in the head (inside `<meta>` tags, using the `defer` attribute) or lower body section of the HTML document.
 
-#### How to include a CSS file in a webpage?
+#### 54. How to include a CSS file in a webpage?
 
 Use an external style sheet by adding a link to it in the head section of the HTML document.
 
 > **CSS** stands for **Cascading Style Sheets**.
 
-#### How to select an element using its id in CSS?
+#### 55. How to select an element using its id in CSS?
 
 `#id`
 
-#### How to select elements using their class in CSS?
+#### 56. How to select elements using their class in CSS?
 
 `.class`
 
-#### How to select elements which have the ‘alpha’ and ‘beta’ classes in CSS?
+#### 57. How to select elements which have the ‘alpha’ and ‘beta’ classes in CSS?
 
 `.alpha.beta`
 
-#### How to select all list items in all ordered lists on the page in CSS?
+#### 58. How to select all list items in all ordered lists on the page in CSS?
 
 `ol li`
 
-#### How to select elements using their attributes in CSS?
+#### 59. How to select elements using their attributes in CSS?
 
 The `[attribute]` selector is used to select elements with a specified attribute.
 
@@ -1200,7 +687,7 @@ a[target] {
 }
 ```
 
-#### What are UX and UI?
+#### 60. What are UX and UI?
 
 **UX (User Experience)**:
 
@@ -1210,7 +697,7 @@ Essentially, UX applies to anything that can be experienced — be it a website,
 
 User interface (UI) is anything a user may interact with to use a digital product or service.
 
-#### Please list some points that an application should fulfill to have good UX.
+#### 61. Please list some points that an application should fulfill to have good UX.
 
 **Visual Design**:
 
@@ -1220,7 +707,7 @@ From hypertext point of view, visual design is described as _visual_ treatment o
 
 Here (web applications), the information design is the process of designing the _presentation of information_ to facilitate understanding. From Hypertext System point of view, it can be described as Navigation Design (design of interface elements to facilitate the user's movement through the information architecture).
 
-#### What is XML, XSLT, DTD?
+#### 62. What is XML, XSLT, DTD?
 
 **XSLT** (Extensible Stylesheet Language):
 
@@ -1234,19 +721,19 @@ In case of HTML document, tags are predefined (such as table, div, and span), an
 - With a DTD, independent groups of **people can agree on a standard DTD** for interchanging data.
 - An application can use a DTD to **verify that XML data is valid**.
 
-#### What is the difference between HTML and XML?
+#### 63. What is the difference between HTML and XML?
 
 See above
 
 ### Javascript
 
-#### What is javascript?
+#### 64. What is javascript?
 
 JavaScript is a scripting or programming language that allows you to implement complex features on web pages — every time a web page does more than just sit there and display static information for you to look at — displaying timely content updates, interactive maps, animated 2D/3D graphics, scrolling video jukeboxes, etc. — you can bet that JavaScript is probably involved.
 
 It is the third layer of the layer cake of standard web technologies (HTML - CSS - JS).
 
-#### When to use AJAX? Bring examples of its usage.
+#### 65. When to use AJAX? Bring examples of its usage.
 
 **AJAX** stands for **Asynchronous JavaScript And XML** (Asynchronous JavaScript And JSON), and it describes a set of development techniques used for building websites and web applications.
 
@@ -1254,7 +741,7 @@ A user's web browser doesn't need to reload an entire web page when only a small
 
 An example of asynchronous updating is Google's "Google Suggest" feature. When you enter a search query into Google's search bar and the Google website automatically begins offering auto-complete options while you type.
 
-#### What is DOM and how to manipulate it from Javascript?
+#### 66. What is DOM and how to manipulate it from Javascript?
 
 The DOM is **an object-oriented representation of the web page**, which can be modified with a scripting language such as JavaScript.
 
@@ -1271,7 +758,7 @@ We can select a DOM element and manipulate it form Javascript:
 - add a new element
 - remove an element
 
-#### What are events and how/why to use them in Javascript?
+#### 67. What are events and how/why to use them in Javascript?
 
 HTML events are "things" that happen to HTML elements. When JavaScript is used in HTML pages, JavaScript can "react" on these events.
 
@@ -1285,7 +772,7 @@ Examples of HTML events:
 - an HTML input field was **changed**
 - an HTML button was **clicked**
 
-#### What is event bubbling/capturing? How would you use it?
+#### 68. What is event bubbling/capturing? How would you use it?
 
 When an event happens on an element, it first runs the **handler**(s) (event handler) on it, then on its parent, then all the way up on other ancestors. The process is called "bubbling", because events "bubble" from the inner element up through parents like a bubble in the water.
 
@@ -1297,7 +784,7 @@ Note the differences from `this`:
 - `event.target` – is the "target" element that initiated the event, it **doesn't change** through the bubbling process.
 - `this` / `event.currentTarget` – is the "current" element, the one that has a currently running handler on it.
 
-#### What is JSON and how do we use it?
+#### 69. What is JSON and how do we use it?
 
 - **JSON** stands for **JavaScript Object Notation**.
 - JSON is a lightweight format for storing and transporting data.
@@ -1312,7 +799,7 @@ A common use of JSON is to read data from a web server, and display the data in 
 
 ### Version control
 
-#### What type of branching strategy would you use?
+#### 70. What type of branching strategy would you use?
 
 The **Gitflow** workflow.
 
@@ -1325,25 +812,25 @@ Short lived branches can include:
 - "release" branch
 - "hotfix" branch
 
-#### What would you do if you find a bug on the production code (master branch)?
+#### 71. What would you do if you find a bug on the production code (master branch)?
 
 Create a hotfix branch, merge the master branch into it, fix the bug, checkout master, then make a pull request.
 
-#### How can you move changes from one branch to another in GIT?
+#### 72. How can you move changes from one branch to another in GIT?
 
 Merge or rebase.
 
-#### How does a VCS help with code reviews?
+#### 73. How does a VCS help with code reviews?
 
 Code review is crucial, and shipping high-quality code is everyone's responsibility. A **Pull Request** (or rather Merge Request) review on GitHub lets you combine multiple inline comments and an overarching summary into a single package that gives readers a clear and consolidated view of your thoughts and recommendations.
 
 > Git is a _directed acyclic graph_, btw.
 
-#### What is your favorite git command? Why?
+#### 74. What is your favorite git command? Why?
 
 `git push origin master` - it feels good to finalize a contribution to the project.
 
-#### What does remote/local mean in Git?
+#### 75. What does remote/local mean in Git?
 
 A remote URL is Git's fancy way of saying "the place where your code is stored." That URL could be your repository on GitHub, or another user's fork, or even on a completely different server.
 
@@ -1351,13 +838,13 @@ Git local repository is the one on which we will make local changes, typically t
 
 ### DevOps
 
-#### Why is it good to use a package manager software?
+#### 76. Why is it good to use a package manager software?
 
 A **package manager** or package-management system is a collection of software tools that **automates** the process of installing, upgrading, configuring, and removing computer programs for a computer's operating system in a **consistent** manner.
 
 A package manager deals with packages, distributions of software and data in archive files. Packages contain metadata, such as the software's name, description of its purpose, version number, vendor, checksum, and a list of dependencies necessary for the software to run properly. Upon installation, metadata is stored in a local package database. Package managers typically maintain a **database of software dependencies** and version information to prevent software mismatches and missing prerequisites.
 
-#### Why is it good to use a virtual environment for a project?
+#### 77. Why is it good to use a virtual environment for a project?
 
 Venv (`venv` module) is a tool for creating isolated Python environments.
 
@@ -1365,7 +852,7 @@ It solves a very specific problem: it allows multiple Python projects that have 
 
 ### Networks
 
-#### What kind of HTTP status codes do you know?
+#### 78. What kind of HTTP status codes do you know?
 
 1. 1xx: Informational - Communicates transfer protocol-level information.
 2. 2xx: Success - Indicates that the client's request was accepted successfully.
@@ -1373,11 +860,11 @@ It solves a very specific problem: it allows multiple Python projects that have 
 4. 4xx: Client Error - This category of error status codes points the finger at clients.
 5. 5xx: Server Error - The server takes responsibility for these error status codes.
 
-#### What is a API?
+#### 79. What is a API?
 
 An **API (Application Programming Interface)** is a gate (interface) in a software, that allows connectivity for the outside word. Usually one API endpoint lets you interact with one certain part of the given software.
 
-#### What is REST API?
+#### 80. What is REST API?
 
 **REST** (**REpresentational State Transfer**) or RESTful is an architectural style used for web development. A set of principles that define how Web standards, such as HTTP and URIs, are supposed to be used.
 
@@ -1427,11 +914,11 @@ RESTful constraints:
   - Executable Code could be transferred
   - Meaning it doesn't have to be just Data, it could be Code that the Client can execute
 
-#### What is JSON? When to use?
+#### 81. What is JSON? When to use?
 
 See above
 
-#### What is TCP/IP? What layers does it define, what are they responsible for?
+#### 82. What is TCP/IP? What layers does it define, what are they responsible for?
 
 **TCP/IP**, or the **Transmission Control Protocol/Internet Protocol**, is a **suite of communication protocols** used to interconnect network devices on the internet. TCP/IP can also be used as a communications protocol in a private network (an intranet or an extranet).
 
@@ -1477,7 +964,7 @@ Provides applications with **standardized data exchange**. Its protocols include
 
 > POPs (Point of Presence) and NAPs (Network Access Point)!
 
-#### What’s the difference between TCP and UDP?
+#### 83. What’s the difference between TCP and UDP?
 
 TCP and UDP are the most commonly used protocols in the _TCP/IP model's_ **Transportation layer**. TCP is a _connection-based_ protocol and UDP is a _connection-less_ protocol, meaning: TCP establishes a connection between a sender and receiver before data can be sent. UDP does not establish a connection before sending data.
 
@@ -1501,7 +988,7 @@ An example: ping. The purpose of the **ping command** is to test the communicati
 
 > Ping is a computer network administration software utility used to test the reachability of a host on an Internet Protocol (IP) network. Ping time is the network latency between a player's client and the game server as measured with the ping utility or equivalent.
 
-#### How does an HTTP Request look like? What are the most relevant HTTP header fields?
+#### 84. How does an HTTP Request look like? What are the most relevant HTTP header fields?
 
 **HTTP MESSAGES** IN GENERAL
 
@@ -1567,7 +1054,7 @@ A typical start-line looks like this: `GET http://developer.mozilla.org/en-US/do
   - **Single-resource bodies**, consisting of **one single file**, defined by the 2 headers: `Content-Type` and `Content-Length`.
   - **Multiple-resource bodies**, consisting of a multipart body, each containing a different bit of information. This is typically associated with **HTML Forms**.
 
-#### How does an HTTP Response look like? What are the most relevant HTTP header fields?
+#### 85. How does an HTTP Response look like? What are the most relevant HTTP header fields?
 
 **Status line** (the start line of an HTTP response):
 
@@ -1590,11 +1077,11 @@ A typical status line looks like: `HTTP/1.1 404 Not Found`.
 - Single-resource bodies, consisting of a **single file of _unknown_ length**, encoded by chunks with `Transfer-Encoding` set to `chunked`. For example, a **YouTube video** or any other **stream**.
 - Multiple-resource bodies, consisting of a multipart body, each containing a different section of information. These are relatively rare.
 
-#### What is DNS? How does it work?
+#### 86. What is DNS? How does it work?
 
 The **Domain Name System (DNS)** is the **phonebook of the Internet**. When users type domain names such as 'google.com' or 'nytimes.com' into web browsers, DNS is responsible for finding the correct IP address for those sites. Browsers then use those addresses to communicate with origin servers or CDN edge servers to access website information. This all happens thanks to **DNS servers**: machines dedicated to answering **DNS queries**.
 
-#### What is a web server?
+#### 87. What is a web server?
 
 "Web server" can refer to hardware or software, or both of them working together:
 
@@ -1608,11 +1095,11 @@ To publish a website, you need either a static or a dynamic web server:
 - A _static web server_, or stack, consists of a computer (hardware) with an HTTP server (software). We call it "static" because the server sends its hosted files "as-is" to your browser.
 - A **dynamic web server** consists of a static web server plus extra software, most commonly an **application server** and a **database**. We call it "dynamic" because the application server updates the hosted files before sending them to your browser via the HTTP server.
 
-#### Explain the client-server architecture.
+#### 88. Explain the client-server architecture.
 
 Client/server architecture is a computing model in which the server hosts, delivers and manages most of the resources and services to be consumed by the client. This type of architecture has **one or more client computers connected to a central server** over a network or internet connection. This system shares computing resources.
 
-#### What would you use a session for?
+#### 89. What would you use a session for?
 
 Because **HTTP is stateless**, in order to associate a request to any other request, you need a way to store user data between HTTP requests.
 
@@ -1624,7 +1111,7 @@ The solution is to **store that data server side**, give it an "id", and let the
 
 > Sessions are implemented with cookies.
 
-#### What would you use a cookie for?
+#### 90. What would you use a cookie for?
 
 Using the **Set-Cookie** header field, an HTTP server can pass **name/value pairs and associated metadata** (called cookies) to a **user agent**. When the user agent makes subsequent requests to the server, the user agent uses the metadata and other information to determine whether to return the name/value pairs in the Cookie header.
 
@@ -1652,7 +1139,7 @@ Cookie alternatives: There is a technology that recently got popular, called **J
 
 ## Software Development Methodologies
 
-#### What kind of software development methodologies do you know? What are the main features of these?
+#### 91. What kind of software development methodologies do you know? What are the main features of these?
 
 In original **waterfall model**, the following phases are followed in order:
 
@@ -1669,7 +1156,7 @@ Thus the waterfall model maintains that one should move to a phase only when its
 
 - Agile is a time boxed, **iterative** approach to software delivery that builds software **incrementally** from the start of the project, instead of trying to deliver it all at once near the end.
 
-#### What are the SCRUM roles?
+#### 92. What are the SCRUM roles?
 
 **Scrum Master**:
 
@@ -1687,7 +1174,7 @@ Thus the waterfall model maintains that one should move to a phase only when its
 - Although individuals may join the team with various job titles, in Scrum, those titles are insignificant. Scrum methodology states that **each person contributes in whatever way they can** to complete the work of each sprint.
 - This does not mean that a tester will be expected to re-architect the system; individuals will spend most (and sometimes all) of their time working in whatever discipline they worked before adopting the agile Scrum model. But with Scrum, individuals are **expected to work beyond their preferred disciplines** whenever doing so would be for the good of the team.
 
-#### What are the SCRUM ceremonies?
+#### 93. What are the SCRUM ceremonies?
 
 1. **Sprint Planning**:
    This is where the team meets and decides what they need to complete in the coming sprint.
@@ -1701,7 +1188,7 @@ Thus the waterfall model maintains that one should move to a phase only when its
 4. **Sprint Retrospective**:
    This is when the team reviews their work, identifying what they did well and what didn't go as planned, so they can make the next sprint better.
 
-#### What are the SCRUM artifacts?
+#### 94. What are the SCRUM artifacts?
 
 Scrum's artifacts represent work or value to provide transparency and opportunities for inspection and adaptation. Artifacts defined by Scrum are specifically designed to maximize transparency of key information so that everybody has the same understanding of the artifact.
 
@@ -1722,11 +1209,11 @@ The Scrum Artifacts are:
 - At the end of a Sprint, the new Increment must be "Done", which means it must be in useable condition and meet the Scrum Team's definition of "Done".
 - Although this may vary significantly per Scrum Team, members must have a shared understanding of what it means for work to be complete, to ensure transparency. This is the **definition of "Done"** for the Scrum Team and is used to assess when work is complete on the product Increment.
 
-#### What is the main goal of a retrospective meeting?
+#### 95. What is the main goal of a retrospective meeting?
 
 The goal of the retrospective is for the team members to discuss among themselves about how the work went during the last sprint so that better ways can be found to meet the project's goals. This means the team should talk about its internal processes as well.
 
-#### Explain, when would you recommend to use the waterfall methodology?
+#### 96. Explain, when would you recommend to use the waterfall methodology?
 
 The waterfall development model originates in the manufacturing and construction industries: highly structured physical environments in which after-the-fact changes are prohibitively costly, if not impossible.
 
@@ -1734,7 +1221,7 @@ The waterfall development model originates in the manufacturing and construction
 
 ### General
 
-#### What happens when you type a URL in the browser and press enter?
+#### 97. What happens when you type a URL in the browser and press enter?
 
 1. You type maps.google.com into the address bar of your browser and **press ENTER**.
 2. The **browser checks the cache for a DNS record** to find the corresponding IP address of maps.google.com:
