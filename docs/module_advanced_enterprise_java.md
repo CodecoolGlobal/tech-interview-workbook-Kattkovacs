@@ -128,14 +128,14 @@ public class Main {
 
 #### 10. Difference between .jar and .war files.
 
-WAR
+**WAR**
 Stands for: Web Application Resource
 File extension: .war
 Purpose and the way they function: WAR files are used only for web applications
 Structure of the archives:WAR has a predefined structure with WEB-INF and META-INF directories
 Execution: We need a server to execute a WAR
 
-JAR
+**JAR**
 Stands for: Java Archive
 File extension: .jar
 Purpose and the way they function: JAR files allow us to package multiple files in order to use it as a library, plugin, or any kind of application
@@ -144,9 +144,48 @@ Execution: We can run a JAR from the command line if we build it as an executabl
 
 #### 11. What are the major differences between Maven, Ant and Gradle?
 
+1. **Ant**
+   **Pros**
+   Better control over the overall build process
+   Flexible enough to work with any work process
+   **Cons**
+   XML based build files can grow large and unmaintainable
+   Lots of time and resources are necessary to maintain the build scripts
+   IDE integration is difficult to achieve
+
+2. **Maven**
+   **Pros**
+   Automatic dependency downloads
+   All dependencies are automatically recorded in source control as part of the Maven scripts
+   Standardizes and simplifies the build process
+   Easily integrates with IDEs and CI/CD systems
+   **Cons**
+   Not flexible in creating custom workflows
+   Steep learning curve and the process is difficult for novices to understand
+   Time-consuming to solve build problems and new library integrations
+   Not good with multiple versions of the same dependency
+
+3. **Gradle**
+   **Pros**
+   Provides standardization while staying flexible
+   Easy to read and write build scripts
+   Better at handling multiple versions of dependencies
+   Able to handle multiple programming languages and technologies
+   Active community helping develop the tool
+   Gradle DSL (Domain-Specific Language) makes it simple configuration structure
+   Gradle provides performance improvements using incrementally, build cache and the Gradle Daemon
+   **Cons**
+   IDE integration not as good as Maven
+
 #### 12. What is Maven used for?
 
+Maven is a powerful project management tool that is based on POM (project object model). It is used for projects build, dependency and documentation. It simplifies the build process like ANT. But it is too much advanced than ANT.
+
+In short terms we can tell maven is a tool that can be used for building and managing any Java-based project. Maven make the day-to-day work of Java developers easier and generally help with the comprehension of any Java-based project.
+
 #### 13. What does a pom.xml file contains in Maven?
+
+Project Object Model(POM) Files are XML file that contains information related to the project and configuration information such as dependencies, source directory, plugin, goals etc. used by Maven to build the project. When you should execute a maven command you give maven a POM file to execute the commands. Maven reads pom.xml file to accomplish its configuration and operations.
 
 ### Object Relational Mapping, JPA
 
