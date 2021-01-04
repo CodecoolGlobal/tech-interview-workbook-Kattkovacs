@@ -491,13 +491,39 @@ A searching algorithm, what it does is pick one element called the pivot and com
 
 #### 36. What is OAuth2?
 
+OAuth is an open-standard authorization protocol or framework that provides applications the ability for “secure designated access.”
+
+OAuth doesn’t share password data but instead uses authorization tokens to prove an identity between consumers and service providers. OAuth is an authentication protocol that allows you to approve one application interacting with another on your behalf without giving away your password.
+
 #### 37. What is Basic Authentication?
+
+Basic authentication is a simple authentication scheme built into the HTTP protocol. The client sends HTTP requests with the Authorization header that contains the word Basic word followed by a space and a base64-encoded string username:password. For example, to authorize as demo / p@55w0rd the client would send
+
+    ```base64
+    Authorization: Basic ZGVtbzpwQDU1dzByZA==
+    ```
+
+Note: Because base64 is easily decoded, Basic authentication should only be used together with other security mechanisms such as HTTPS/SSL.
 
 #### 38. What is CORS, why it’s needed in browsers?
 
+Cross-Origin Resource Sharing (CORS) is a protocol that enables scripts running on a browser client to interact with resources from a different origin. This is useful because, thanks to the same-origin policy followed by XMLHttpRequest and fetch, JavaScript can only make calls to URLs that live on the same origin as the location where the script is running. For example, if a JavaScript app wishes to make an AJAX call to an API running on a different domain, it would be blocked from doing so thanks to the same-origin policy.
+
 #### 39. How can you initialize a CSRF attack?
 
+There are two main parts to executing a Cross-site Request Forgery attack. The first one is tricking the victim into clicking a link or loading a page. This is normally done through social engineering and malicious links. The second part is sending a crafted, legitimate-looking request from the victim’s browser to the website. The request is sent with values chosen by the attacker including any cookies that the victim has associated with that website. This way, the website knows that this victim can perform certain actions on the website. Any request sent with these HTTP credentials or cookies will be considered legitimate, even though the victim would be sending the request on the attacker’s command.
+
 #### 40. What is JWT used for? Where to store it on client side?
+
+A very common use of a JWT token, and the one you should probably only use JWT for, is as an API authentication mechanism.
+
+A JWT needs to be stored in a safe place inside the user’s browser.
+
+If you store it inside localStorage, it’s accessible by any script inside your page (which is as bad as it sounds, as an XSS attack can let an external attacker get access to the token).
+
+Don’t store it in local storage (or session storage). If any of the third-party scripts you include in your page gets compromised, it can access all your users’ tokens.
+
+The JWT needs to be stored inside an httpOnly cookie, a special kind of cookie that’s only sent in HTTP requests to the server, and it’s never accessible (both for reading or writing) from JavaScript running in the browser.
 
 ### Threaded programming
 
