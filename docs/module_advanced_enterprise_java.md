@@ -49,23 +49,108 @@ The Java platform (Enterprise Edition) differs from the Java Standard Edition Pl
 
 #### 6. What is a servlet? What is the purpose of DispatcherServlet in Spring?
 
+- Servlets are the Java programs that runs on the Java-enabled web server or application server. They are used to handle the request obtained from the web server, process the request, produce the response, then send response back to the web server.
+
+- In Spring MVC, all incoming requests go through a single servlet. This servlet - DispatcherServlet - is the front controller. Front controller is a typical design pattern in the web applications development. In this case, a single servlet receives all requests and transfers them to all other components of the application.
+
 #### 7. When do you use RestControllers, when just simple Controllers?
+
+The @RestController annotation in Spring MVC is nothing but a combination of @Controller and @ResponseBody annotation.
+
+The job of @Controller is to create a Map of the model object and find a view but @RestController simply returns the object and object data is directly written into HTTP response as JSON or XML.
+
+This can also be done with traditional @Controller and use @ResponseBody annotation but since this is the default behavior of RESTful Web services, Spring introduced @RestController which combined the behavior of @Controller and @ResponseBody together.
 
 #### 8. What is Spring Application Context?
 
-#### What are the main ways to define a bean in the Application Context?
+ApplicationContext is a corner stone of a Spring Boot application. It represents the Spring IoC container and is responsible for instantiating, configuring, and assembling the beans. The container gets its instructions on what objects to instantiate, configure, and assemble by reading configuration metadata.
 
-#### Difference between .jar and .war files.
+#### 9. What are the main ways to define a bean in the Application Context?
 
-#### What are the major differences between Maven, Ant and Gradle?
+1. **Declaring a bean in XML configuration file**
+   This is the most primitive approach of creating a bean. A bean is declared in Spring’s XML configuration file. Upon startup, Spring container reads this configuration file and creates and initializes all the beans defined in this file which can be used anytime during application execution.
 
-#### What is Maven used for?
+Here is how we define a bean in configuration XML.
 
-#### What does a pom.xml file contains in Maven?
+<bean id="”user”" class="”com.codippa.User”"></bean>
+
+2. **Using @Component annotation**
+   @Component annotation above a class indicates that this class is a component and should be automatically detected and instantiated. Thus, a Spring component bean will look like:
+
+```java
+   package com.codippa;
+
+@Component
+public class User {
+  .
+}
+```
+
+3. **Using @Configuration annotation**
+   This method does not require any XML file and it can be used to create a bean without XML configuration file. Create a class which you want to get as a bean, say a user and annotate it with @Configuration as:
+
+```java
+@Configuration
+public class User {
+  @Value("codippa")//initialize the value of this field
+  private String name;
+  @Value("India")
+  private String country;
+  public String getName() {
+    return name;
+  }
+  public void setName(String name) {
+    this.name = name;
+  }
+  public String getCountry() {
+    return country;
+  }
+  public void setCountry(String country) {
+    this.country = country;
+  }
+}
+```
+
+4. **Create an executable class having main method to test this method.**
+   This class uses AnnotationConfigApplicationContext as ApplicationContext implementation to retrieve a bean from Spring context.
+
+```java
+public class Main {
+   @SuppressWarnings("resource")
+   public static void main(String[] args) {
+      ApplicationContext context = new AnnotationConfigApplicationContext(User.class);
+      User user = (User)context.getBean("user");
+      System.out.println(user.getName());
+      System.out.println(user.getCountry());
+   }
+}
+```
+
+#### 10. Difference between .jar and .war files.
+
+WAR
+Stands for: Web Application Resource
+File extension: .war
+Purpose and the way they function: WAR files are used only for web applications
+Structure of the archives:WAR has a predefined structure with WEB-INF and META-INF directories
+Execution: We need a server to execute a WAR
+
+JAR
+Stands for: Java Archive
+File extension: .jar
+Purpose and the way they function: JAR files allow us to package multiple files in order to use it as a library, plugin, or any kind of application
+Structure of the archives: We can create a JAR with any desired structure
+Execution: We can run a JAR from the command line if we build it as an executable JAR without using additional software or we can use it as a library
+
+#### 11. What are the major differences between Maven, Ant and Gradle?
+
+#### 12. What is Maven used for?
+
+#### 13. What does a pom.xml file contains in Maven?
 
 ### Object Relational Mapping, JPA
 
-#### What is an ORM? What are the benefits, when to use?
+#### 14. What is an ORM? What are the benefits, when to use?
 
 Object-relational Mapping. It’s a technique to convert data between an object oriented language and a relational database, because of the non compatible data types. On one hand there are objects with fields of any kinds, and on the other hand there are databases with tables with columns of a few defined types. With the help of an ORM we define how our objects (and it’s fields) should be inserted into a database. An ORM framework helps with this (for example Hibernate).
 Advantages:
@@ -78,16 +163,16 @@ Disadvantages:
 • harder to debug
 ORM is an optimal choice if your application uses mostly simple queries, and you have relatively simple objects.
 
-#### What is the difference between JDBC and JPA? Which are the advantages and disadvantages of each? Give a general overview.
+#### 15. What is the difference between JDBC and JPA? Which are the advantages and disadvantages of each? Give a general overview.
 
-#### What is Hibernate? What are the advantages, limitations?
+#### 16. What is Hibernate? What are the advantages, limitations?
 
-#### Name 3 different annotations used in JPA, what can they do for you?
+#### 17. Name 3 different annotations used in JPA, what can they do for you?
 
-#### What is object-relational impedance mismatch?
+#### 18. What is object-relational impedance mismatch?
 
-#### What is a JpaRepository? What are the 2 main methods to define queries in them?
+#### 19. What is a JpaRepository? What are the 2 main methods to define queries in them?
 
-#### Why is the Set preferred over List when we want to store OneToMany relations?
+#### 20. Why is the Set preferred over List when we want to store OneToMany relations?
 
-#### What kind of inheritance strategies are available? Which annotations are used to solve this?
+#### 21. What kind of inheritance strategies are available? Which annotations are used to solve this?
