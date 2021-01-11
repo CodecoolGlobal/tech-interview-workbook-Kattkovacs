@@ -204,14 +204,142 @@ ORM is an optimal choice if your application uses mostly simple queries, and you
 
 #### 15. What is the difference between JDBC and JPA? Which are the advantages and disadvantages of each? Give a general overview.
 
+• JDBC is a standard for Database Access
+• JPA is a standard for ORM
+**Pros of JDBC**
+
+1. Clean and simple SQL processing.
+2. Good performance with large data.
+3. Very good for small applications.
+4. Simple syntax so easy to learn.
+   **Cons of JDBC**
+5. Complex if it is used in large projects.
+6. Large programming overhead.
+7. No encapsulation.
+8. Hard to implement MVC concept.
+9. Query is DBMS specific
+
+**Pros of JPA**
+
+1. “reduces” the amount of SQL you should write to make a CRUD, simplifying those operations with some generic methods, and JPA makes the translation of the objects you send into SQL.
+2. You can make “complex” operations by Criteria API, so you can handle a variety of SQL functions with objects.
+   **Cons of JPA**
+3. Add one more thing you have to worry about (if you have a complex database interactions).
+4. JPA Have limitations, that is the reason for have a Native interface, you can send Native SQL sentences to database soooooo, you can survive without JPA or any ORM.
+5. It’s heavyweight, it creates a complete environment that you almost never need.
+
 #### 16. What is Hibernate? What are the advantages, limitations?
+
+Hibernate is a Java framework that simplifies the development of Java application to interact with the database. It is an open source, lightweight, ORM (Object Relational Mapping) tool. Hibernate implements the specifications of JPA (Java Persistence API) for data persistence.
+
+**Advantages**
+
+1. ORM – maintenance is easy and cost-effective.
+2. Transparent Persistence
+3. Database independent
+4. HQL – HQL’s advanced features like pagination and dynamic profiling are not present in SQL. So we can use it in hibernate.
+5. Dual-layer Caching
+6. Version Property
+7. Open Source and free software
+8. Scalability is easy
+9. Lazy-Loading – The lazy-loading concept fetches only the necessary object that is required for the execution of an application.
+10. Easy to Learn
+11. Also supports collections like List, Set, Map.
+12. capability to generate primary keys
+13. Hibernate provided Dialect classes
+14. It supports relationships like One-To-Many, One-To-One, Many-To-Many-to-Many, Many-To-One
+    **Disadvantages**
+15. little slower than pure JDBC
+16. boilerplate code issue
+17. generate many SQL statements in run time
+18. Hibernate is not suitable for Batch processing
+19. Hibernate is slow because it uses run time reflection
+20. Lots of API to learn
+21. Sometimes debugging and performance tuning becomes difficult.
+22. Not suitable for Small projects
+23. Does not allow multiple inserts
+24. Generates complex quires with many joins
+25. HQL queries cannot call PL/SQL program
 
 #### 17. Name 3 different annotations used in JPA, what can they do for you?
 
+**javax.persistence.Entity**: Specifies that the class is an entity. This annotation can be applied on Class, Interface of Enums.
+import javax.persistence.Entity;
+
+```java
+@Entity
+public class Employee implements Serializable {
+}
+```
+
+**javax.persistence.Column**: Specify the column mapping using @Column annotation. Name attribute of this annotation is used for specifying the table’s column name.
+
+```java
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+@Entity
+public class Employee implements Serializable {
+
+  @Column(name = "employee_name")
+  private String employeeName;
+}
+```
+
+**javax.persistence.Id**: This annotation specifies the primary key of the entity.
+import javax.persistence.\*;
+
+```java
+@Entity
+public class Employee implements Serializable {
+  @Id
+  private int id;
+}
+```
+
 #### 18. What is object-relational impedance mismatch?
+
+Impedance mismatch is the term used to refer to the problems that occurs due to differences between **the database model and the programming language model**.
 
 #### 19. What is a JpaRepository? What are the 2 main methods to define queries in them?
 
+Spring Data repository significantly reduces the amount of boilerplate code required to implement data access layers for various persistence stores. Spring Data JpaRepository interface extends CrudRepository and provides finder methods out of the box.
+
+2 main methods to define queries:
+• **JPQL, using NamedQuery**
+
+```java
+SELECT u FROM User u WHERE u.active = TRUE
+```
+
+• **Spring QueryMethod**
+
+```java
+findByActiveTrue()
+```
+
 #### 20. Why is the Set preferred over List when we want to store OneToMany relations?
 
+A list, if there is no index column specified, will just be handled as a bag by Hibernate (no specific ordering).
+
+One notable difference in the handling of Hibernate is that you can't fetch two different lists in a single query. For example, if you have a Person entity having a list of contacts and a list of addresses, you won't be able to use a single query to load persons with all their contacts and all their addresses. The solution in this case is to make two queries (which avoids the cartesian product), or to use a Set instead of a List for at least one of the collections.
+
+It's often hard to use Sets with Hibernate when you have to define equals and hashCode on the entities and don't have an immutable functional key in the entity.
+
 #### 21. What kind of inheritance strategies are available? Which annotations are used to solve this?
+
+• **MappedSuperclass** – the parent classes, can't be entities
+
+@MappedSuperclass
+
+• **Single Table** – the entities from different classes with a common ancestor are placed in a single table
+
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+
+• **Joined Table** – each class has its table and querying a subclass entity requires joining the tables
+
+@Inheritance(strategy = InheritanceType.JOINED)
+
+• **Table-Per-Class** – all the properties of a class, are in its table, so no join is required
+
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
