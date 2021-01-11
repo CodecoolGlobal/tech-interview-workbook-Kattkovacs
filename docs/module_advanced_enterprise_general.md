@@ -443,7 +443,36 @@ A **weighted graph** or labeled graph is a graph in which each branch is given a
 
 #### 30. What are trees? What are binary trees? What are binary search trees?
 
+Tree is a non-linear **data structure** which organizes data in a hierarchical structure and this is a recursive definition.
+OR
+A tree is a connected graph **without any circuits**.
+OR
+If in a graph, there is one and only one path between every pair of vertices, then graph is called as a tree.
+
+A tree in which every node can have maximum of two children is called as **Binary Tree**.
+
+A **Binary Search Tree (BST)** is a tree in which all the nodes follow the below-mentioned properties:
+
+The value of the key of the left sub-tree is less than the value of its parent (root) node's key.
+The value of the key of the right sub-tree is greater than or equal to the value of its parent (root) node's key.
+Thus, BST divides all its sub-trees into two segments;
+the left sub-tree and the right sub-tree and can be defined as −
+
+```java
+left_subtree (keys) < node (key) ≤ right_subtree (keys)
+```
+
 #### 31. How can you store graphs in programs? What are the advantages/disadvantages per each?
+
+**Adjacency Matrix**
+Definition: An adjacency matrix is a square matrix with dimensions equivalent to the number of vertices in the graph.
+Pros: Easier to implement and efficient to query
+Cons: Less efficient with respect to space occupied
+
+**Adjacency List**
+Definition: An adjacency list is nothing but an array of lists. The size of the array is equivalent to the number of vertices in the graph. The list at a specific index of the array represents the adjacent vertices of the vertex represented by that array index.
+Pros: Better space efficiency
+Cons: Comparatively difficult to create and less efficient to query
 
 #### 32. What are graph traversal algorithms? What is BFS, how does it work? What is DFS, how does it work?
 
