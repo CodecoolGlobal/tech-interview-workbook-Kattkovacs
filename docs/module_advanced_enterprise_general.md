@@ -558,14 +558,55 @@ The JWT needs to be stored inside an httpOnly cookie, a special kind of cookie t
 
 #### 41. When do you need to use threads in an application?
 
+Multi threading is most useful when a process consist of mutually independent tasks , either of which can be performed when the other is waiting for some resources to be freed up and allocated by the CPU.
+
+For example , suppose a heavy process in which one of the many tasks is to read a file and store it in the local cache and other is to use the printer to print out the content. In this situation , if the printer is not available at the moment then in a single thread environment , the process will halt until the printer is freed up. However, if multi threading is being used, while one thread can wait for the printer, other can perform read task on the file. This way the CPU cycles are used more efficiently.
+
+Having said above, multi threading can also be used in a mutually dependent task environment by using locks. However, as the number of locks goes up , so does the probability of deadlock occurring.
+
 #### 42. What is a daemon thread?
+
+Daemon thread in Java provides service to the user thread which runs in the background. It is considered to be a low priority thread which is used to perform tasks such as garbage collection. In java, every thread has its priority and the one with higher priority tends to execute faster. Also, Java Virtual Machine(JVM) terminates this thread automatically. It can not prevent JVM from exiting when all the user threads finish their execution, even if daemon thread itself is running.
 
 #### 43. What is the difference between concurrent and parallel execution of code?
 
+If you program is using threads (concurrent programming), it's not necessarily going to be executed as such (parallel execution), since it depends on whether the machine can handle several threads.
+
+Here's a visual example. Threads on a non-threaded machine:
+
+        --  --  --
+     /              \
+
+> ---- -- -- -- -- ---->>
+> Threads on a threaded machine:
+
+     ------
+    /      \
+
+> -------------->>
+> The dashes represent executed code. As you can see, they both split up and execute separately, but the threaded machine can execute several separate pieces at once.
+
 #### 44. What is the most important problem developers are faced when using threads?
+
+**Synchronization:**
+Must coordinate access to shared data with locks. – Forget a lock? Corrupted data.
+**Deadlock:**
+– Circular dependencies among locks. – Each process waits for some other process: system hangs.
 
 #### 45. In what kind of situations can deadlocks occur?
 
+Deadlock occurs when multiple threads need the same locks but obtain them in different order. A Java multithreaded program may suffer from the deadlock condition because the synchronized keyword causes the executing thread to block while waiting for the lock, or monitor, associated with the specified object.
+
 #### 46. What are possible ways to prevent deadlocks from occurring?
 
+- Lock Ordering
+- Lock Timeout
+- Deadlock Detection
+
 #### 47. What does critical section or critical region mean in the context of concurrent programming?
+
+When more than one processes access a same code segment that segment is known as critical section. Critical section contains shared variables or resources which are needed to be synchronized to maintain consistency of data variable.
+
+In simple terms a critical section is group of instructions/statements or region of code that need to be executed atomically, such as accessing a resource (file, input or output port, global data, etc.).
+
+In concurrent programming, if one thread tries to change the value of shared data at the same time as another thread tries to read the value (i.e. data race across threads), the result is unpredictable.
