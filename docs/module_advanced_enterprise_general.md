@@ -31,6 +31,30 @@ Benefits: secure, easy to manage, scalable (between tiers), flexible (inside tie
 
 #### 2. What are microservices? Advantages and disadvantages?
 
+Microservices - also known as the **microservice architecture** - is an architectural style that **structures an application as a collection of services** that are:
+
+- Highly maintainable and testable.
+- Loosely coupled.
+- Independently deployable.
+- Organized around business capabilities.
+
+**Advantages:**
+
+- Improved fault isolation: Larger applications can remain mostly unaffected by the failure of a single module.
+- Eliminate vendor or technology lock-in: Microservices provide the flexibility to try out a new technology stack on an individual service as needed. There won’t be as many dependency concerns and rolling back changes becomes much easier. With less code in play, there is more flexibility.
+- Ease of understanding: With added simplicity, developers can better understand the functionality of a service.
+- Smaller and faster deployments: Smaller codebases and scope = quicker deployments, which also allow you to start to explore the benefits of Continuous Deployment.
+- Scalability: Since your services are separate, you can more easily scale the most needed ones at the appropriate times, as opposed to the whole application. When done correctly, this can impact cost savings.
+
+**Disadvanteges:**
+
+- Communication between services is complex: Since everything is now an independent service, you have to carefully handle requests traveling between your modules. In one such scenario, developers may be forced to write extra code to avoid disruption. Over time, complications will arise when remote calls experience latency.
+- More services equals more resources: Multiple databases and transaction management can be painful.
+- Global testing is difficult: Testing a microservices-based application can be cumbersome. In a monolithic approach, we would just need to launch our WAR on an application server and ensure its connectivity with the underlying database. With microservices, each dependent service needs to be confirmed before testing can occur.
+- Debugging problems can be harder: Each service has its own set of logs to go through. Log, logs, and more logs.
+- Deployment challengers: The product may need coordination among multiple services, which may not be as straightforward as deploying a WAR in a container.
+- Large vs small product companies: Microservices are great for large companies, but can be slower to implement and too complicated for small companies who need to create and iterate quickly, and don’t want to get bogged down in complex orchestration.
+
 #### 3. What is Separation of Concerns?
 
 The **separation of concerns (SoC)** is one of the most fundamental principles in software development.
