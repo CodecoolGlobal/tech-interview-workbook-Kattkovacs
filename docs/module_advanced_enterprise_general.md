@@ -252,17 +252,34 @@ A **Unit Test** tests a single **"Act"** in a program, typically a single method
 
 #### 14. What is continuous integration? Why is CI important?
 
+Software developers often work in isolation and therefore the advent of CI is a great practice when working in a team because prior to the emergence of Continuous Integration, it took days or even weeks for software developers to **integrate their code** and also to merge changes from different branches of code. These long periods of time created many merge conflicts, stubborn bugs, code strategy divergence and duplicated effort.
+_CI requires the **team’s code be merged to a shared control branch, continuously**, to avoid these problems._
+
 #### 15. Why are tests important in the CI workflow?
+
+You can run your code to your new branch and the Continuous Integration server will take care of running the tests for you. If everything is fine, you can be sure that you didn’t break the code. And if the code fails on another person’s machine, you have evidence that your code is not at fault.
 
 #### 16. Name some software that help the CI workflow!
 
+- Jenkins
+- GitLab CI
+- TeamCity (Jetbrains)
+
 #### 17. What is Continuous Delivery?
+
+Continuous delivery is the important process of **delivering the software/updates to production in smaller increments**, ensuring that the software can be released at any time. With this approach of DevOps, the team will be always ready on ‘Delivering any time’ to the production.
+_Continuous delivery is a state of being ready and able to release any version at any time on any platform._
 
 #### 18. What is Continuous Deployment?
 
+Continuous deployment (CD) is a software engineering approach in which software functionalities are delivered frequently through automated deployments. CD opposite with continuous delivery, a similar approach in which software functionalities are also frequently delivered and they think to be potentially able of being deployed but are actually not deployed.
+_Continuous deployment is being able to continually deploy._
+
 #### 19. What is DevOps?
 
-DevOps is a set of processes, methods and systems for communication, collaboration and integration between departments for Development (Applications/Software Engineering), Technology Operations and Quality Assurance (QA)
+DevOps is a set of processes, methods and systems for **communication, collaboration and integration between departments** for Development (Applications/Software Engineering), Technology Operations and Quality Assurance (QA).
+
+DevOps integrates developers and operations teams in order to improve collaboration and productivity by automating infrastructure, automating workflows and continously measuring application performance.
 
 ### Software Methodologies
 
