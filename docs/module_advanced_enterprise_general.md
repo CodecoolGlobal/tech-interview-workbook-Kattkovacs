@@ -188,24 +188,23 @@ Without a library, the easiest way would be to create an **inner class** that im
 
 #### 11. What is a test case? What is an assertion? Give examples!
 
-A test case is represented by a single test method. An assertion asserts that the _expected_ outcome is the same as the _actual_ outcome.
+A test case is a document, which has a set of test data, preconditions, expected results and postconditions, developed for a particular test scenario in order to verify compliance against a specific requirement.
 
-Example:
+Test Case acts as the starting point for the test execution, and after applying a set of input values, the application has a definitive outcome and leaves the system at some end point or also known as execution postcondition.
 
-```csharp
-[Test]
-public void ReadLines_Given1And1_ShouldReturnFirstLine()
-{
-    // Arrange
-    int fromLine = 1;
-    int toLine = 1;
-    _filePartReader.Setup(SHORT_FILE_PATH, fromLine, toLine);
-    // Act
-    string expected = TestUtils.NormalizeLineEnds("this is a sentence\n");
-    string actual = TestUtils.NormalizeLineEnds(_filePartReader.ReadLines());
-    // Assert
-    Assert.AreEqual(expected, actual);
-}
+The term ‘assertion’ means a boolean expression that concerns a defined item of the software program that will be true until the system error happens. A test assertion is a statement that describes the logic of the system under test.
+
+_If you want to test the **boolean conditions** (true or false), you can use following assert methods_
+
+```java
+    assertTrue(condition)
+    assertFalse(condition)
+```
+
+_If you want to test **equality of two objects**, you have the following methods_
+
+```java
+    assertEquals(expected, actual)
 ```
 
 #### 12. What is TDD? What are the benefits?
@@ -436,6 +435,8 @@ The following 5 concepts make up our SOLID principles:
 > In traditional software development, high-level components depend on low-level ones. Thus, it's hard to reuse the high-level components. The DIP is about inverting the classic dependency between high-level and low-level components by abstracting away the interaction between them.
 
 #### 27. How would you separate data storage code and business logic code (which uses stored data) in an application?
+
+The **Data Access Object (DAO) pattern** is a structural pattern that allows us to isolate the application/business layer from the persistence layer (usually a relational database, but it could be any other persistence mechanism) using an abstract API.
 
 ## Computer science
 
